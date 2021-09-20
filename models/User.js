@@ -12,3 +12,7 @@ const UserSchema = new Schema({
     },
     comments: []
 });
+
+const User = mdoel('User', UserSchema)
+
+model.exports = User;
