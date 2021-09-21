@@ -1,4 +1,4 @@
-const { Shema, model } = require('mongoose');
+const { Schema, model } = require('mongoose');
 
 const UserSchema = new Schema({
     username: {
@@ -13,6 +13,6 @@ const UserSchema = new Schema({
     comments: []
 });
 
-const User = mdoel('User', UserSchema)
+const User = model('User', UserSchema)
 
-model.exports = User;
+module.exports = User;

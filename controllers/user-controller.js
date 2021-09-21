@@ -20,7 +20,7 @@ const userController = {
 
     // update a user by id
     updateUser({ params, body }, res) {
-        User.findOneandUpdate({ id: params.id}, body, { new: true })
+        User.findOneAndUpdate({ id: params.id}, body, { new: true })
             .then(dbUserData => {
                 if (!dbUserData) {
                     res.status(404).json({ message: 'No pizza found with this id!' });
@@ -44,3 +44,5 @@ const userController = {
             .catch(err => res.status(400).json(err));
     }
 }
+
+module.exports = userController;
