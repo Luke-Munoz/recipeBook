@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
-import Recipes from './components/view-blog-posts-pagee'
+import Recipes from './components/pages/ViewBlogPage'
 import Navigation from './components/nav';
-import OnLoadPage from './components/on-load-page';
-import Login from './components/login';
+import OnLoadPage from './components/pages/OnLoadPage';
+import Login from './components/pages/Login';
+
+
 
 function App() {
 const [currentPage, handlePageChange] = useState('Home')
@@ -14,7 +16,6 @@ const [currentPage, handlePageChange] = useState('Home')
       case 'Navigation':
         return <Navigation/>;
 
-
         case 'Recipes':
           return  <Recipes />;
 
@@ -24,7 +25,6 @@ const [currentPage, handlePageChange] = useState('Home')
           default:
 
             return<OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/> ;
-
     }
   }
 

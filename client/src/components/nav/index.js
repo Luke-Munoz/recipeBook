@@ -22,8 +22,7 @@ const Navigation = (props) => {
                     onClick={() => props.handlePageChange(tab)}
                     className={
                         props.currentPage === tab ? 'nav-link active' : 'nav-link'
-                    }
-                >
+                    }>
                     {tab}
                 </a>
             </li>

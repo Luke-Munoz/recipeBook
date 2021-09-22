@@ -3,10 +3,15 @@ import React from 'react';
 
 
 function Login(props){
+    const clickEventHandler = (e) => {
+        props.handlePageChange('LoggedIn')
+    }
+
 
     return (
         <section>
             <p>HELLLOOOOO this is the login page</p>
+            <button onClick = {clickEventHandler} type = "button"> login </button>
         </section>
     )
 }
