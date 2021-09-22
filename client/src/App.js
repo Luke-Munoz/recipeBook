@@ -1,39 +1,39 @@
 import React, {useState} from 'react';
 import './App.css';
 
+import Navigation from './components/nav';
+import OnLoadPage from './components/on-load-page'
 
 
 function App() {
+const [currentPage, handlePageChange] = useState('OnLoadPage')
+
+
   const renderPage = () => {
     switch (currentPage) {
-      case '':
-        return ;
+      case 'Navigation':
+        return <Navigation/>;
+
 
         case '':
           return ;
 
           default:
-            return ;
+
+            return<OnLoadPage/> ;
+
     }
   }
 
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+      <header class = "navigation">
+        <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
       </header>
+        <div> {renderPage(currentPage)}</div>
+
     </div>
   );
 }

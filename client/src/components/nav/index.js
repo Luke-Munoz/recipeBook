@@ -5,7 +5,9 @@ const Navigation = (props) => {
 
 
 
-    const tabs = ['Home', 'Login',]
+
+    const tabs = ['Recipes', 'Login',]
+
 
     return (
     <ul className="nav nav-tabs">
