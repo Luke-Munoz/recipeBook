@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
+
 import Navigation from './components/nav';
 import OnLoadPage from './components/on-load-page'
 
@@ -13,21 +14,26 @@ const [currentPage, handlePageChange] = useState('OnLoadPage')
       case 'Navigation':
         return <Navigation/>;
 
+
         case '':
           return ;
 
           default:
+
             return<OnLoadPage/> ;
+
     }
   }
 
 
   return (
     <div className="App">
+
       <header class = "navigation">
         <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
       </header>
         <div> {renderPage(currentPage)}</div>
+
     </div>
   );
 }
