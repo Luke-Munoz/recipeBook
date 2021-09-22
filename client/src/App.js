@@ -1,12 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-
+import Recipes from './components/recipes'
 import Navigation from './components/nav';
-import OnLoadPage from './components/on-load-page'
-
+import OnLoadPage from './components/on-load-page';
+import Login from './components/login';
 
 function App() {
-const [currentPage, handlePageChange] = useState('OnLoadPage')
+const [currentPage, handlePageChange] = useState('Home')
 
 
   const renderPage = () => {
@@ -15,12 +15,15 @@ const [currentPage, handlePageChange] = useState('OnLoadPage')
         return <Navigation/>;
 
 
-        case '':
-          return ;
+        case 'Recipes':
+          return  <Recipes />;
+
+        case 'Login':
+          return  <Login />;
 
           default:
 
-            return<OnLoadPage/> ;
+            return<OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/> ;
 
     }
   }
