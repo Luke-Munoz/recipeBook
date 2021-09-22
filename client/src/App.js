@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-import Recipes from './components/recipes'
+import Recipes from './components/view-blog-posts-pagee'
 import Navigation from './components/nav';
 import OnLoadPage from './components/on-load-page';
 import Login from './components/login';
