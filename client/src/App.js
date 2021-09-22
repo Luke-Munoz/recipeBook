@@ -4,7 +4,7 @@ import Recipes from './components/pages/ViewBlogPage'
 import Navigation from './components/nav';
 import OnLoadPage from './components/pages/OnLoadPage';
 import Login from './components/pages/Login';
-
+import Home from './components/pages/Home';
 
 
 function App() {
