@@ -5,7 +5,7 @@ function OnLoadPage(props){
 
     return (
         <section>
-            <p>HELLLOOOOO</p>
+            <p>HELLLOOOOO this is the first page you should see on mount</p>
         </section>
     )
 }
