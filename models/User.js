@@ -10,7 +10,11 @@ const UserSchema = new Schema({
     password: {
         type: String
     },
-    comments: []
+    comments: [
+        {
+            type: String
+        }
+    ]
 });
 
 const User = model('User', UserSchema)
