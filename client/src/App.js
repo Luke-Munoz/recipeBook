@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+//import {BrowserRouter as Router, Route, Switch} from 'react-route-dom';
 import './App.css';
 import Recipes from './components/pages/ViewBlogPage'
 import Navigation from './components/nav';
@@ -30,7 +31,7 @@ const [currentPage, handlePageChange] = useState('Home')
 
 
   return (
-    <div className="App">
+    <div>
 
       <header class = "navigation">
         <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
@@ -38,6 +39,7 @@ const [currentPage, handlePageChange] = useState('Home')
         <div> {renderPage(currentPage)}</div>
 
     </div>
+
   );
 }
 

@@ -1,14 +1,18 @@
+
 import React from 'react';
-// import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactstrap';
+import { Jumbotron, Container } from 'reactstrap';
 
-
-function OnLoadPage(props){
-
+const OnLoadPage = (props) => {
     return (
-        <section>
-            <p>HELLLOOOOO this is the first page you should see on mount</p>
-        </section>
-    )
-}
+        <div>
+            <Jumbotron fluid>
+                <Container fluid>
+                    <h1 className="display-3">Fluid jumbotron</h1>
+                    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                </Container>
+            </Jumbotron>
+        </div>
+    );
+};
 
-export default OnLoadPage
+export default OnLoadPage;
