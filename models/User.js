@@ -20,19 +20,8 @@ const UserSchema = new Schema(
             unique: true,
             match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Please choose a password that has at least one letter, one number, one special character and is as least eight characters long']
         },
-    },
-    {
-        // toJSON: {
-            //virtuals: true,
-        // },
-        // id: false
     }
 );
-
-// placeholder for counting how many comments our recipe module will have
-// UserSchema.vitual('commentCount').get(function() {
-//    return this.comments.length
-// })
 
 const User = model('User', UserSchema)
 
