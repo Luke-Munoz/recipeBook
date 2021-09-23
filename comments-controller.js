@@ -20,7 +20,16 @@ const commentController = {
     },
 
     addReply({ params, body }, res) {
-        Comment.findOneAndUpdate({ _id: params.commentId }, )
+        Comment.findOneAndUpdate({ _id: params.commentId }, { $push: { replies: body } }, { new: true, runValidators: true })
+            .then(dbRecipeData => {
+                if (!dbRecipeData) {
+                    res.status(404).json({ message: 'no recipe found with this id!' });
+                    return;
+                }
+                res.json(dbRecipeData);
+            })
+            .catch(err => res.json(err));
     }
+
 
 }
