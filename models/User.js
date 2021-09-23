@@ -20,12 +20,6 @@ const UserSchema = new Schema(
             unique: true,
             match: [/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/, 'Please choose a password that has at least one letter, one number, one special character and is as least eight characters long']
         },
-        comments: [
-            {
-                // type: Schema.Types.ObjectId,
-                // ref: 'Recipe'
-            }
-        ]
     },
     {
         // toJSON: {
