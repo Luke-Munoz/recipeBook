@@ -1,10 +1,7 @@
-import React, { useState } from 'react;
-
+import React from 'react';
 
         function Signup(props) {
-        const [formState, setFormState] = useState({email:'', password: ''});
-
-
+        //const [formState, setFormState] = useState({email:'', password: ''});
         //const handleFormSubmit
         //const handleChange
 
