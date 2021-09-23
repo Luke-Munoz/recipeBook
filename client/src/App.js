@@ -6,7 +6,7 @@ import Navigation from './components/nav';
 import OnLoadPage from './components/pages/OnLoadPage';
 import Login from './components/pages/Login';
 import Home from './components/pages/Home';
-
+import Signup from './components/pages/Signup'
 
 function App() {
 const [currentPage, handlePageChange] = useState('Home')
@@ -14,6 +14,9 @@ const [currentPage, handlePageChange] = useState('Home')
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'Signup':
+        return <Signup />;
+
       case 'Navigation':
         return <Navigation/>;
 

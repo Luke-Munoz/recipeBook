@@ -8,7 +8,7 @@ const Navigation = (props) => {
 
 
 
-    const tabs = ['Recipes', 'Login',]
+    const tabs = ['Recipes', 'Login','Signup']
 
 
     return (
