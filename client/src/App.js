@@ -1,40 +1,48 @@
 import React, {useState} from 'react';
+//import {BrowserRouter as Router, Route, Switch} from 'react-route-dom';
 import './App.css';
-
-
+import Recipes from './components/pages/ViewBlogPage'
+import Navigation from './components/nav';
+import OnLoadPage from './components/pages/OnLoadPage';
+import Login from './components/pages/Login';
+import Home from './components/pages/Home';
+import Signup from './components/pages/Signup'
 
 function App() {
+const [currentPage, handlePageChange] = useState('Home')
+
+
   const renderPage = () => {
     switch (currentPage) {
-      case '':
-        return ;
+      case 'Signup':
+        return <Signup />;
 
-        case '':
-          return ;
+      case 'Navigation':
+        return <Navigation/>;
+
+        case 'Recipes':
+          return  <Recipes />;
+
+        case 'Login':
+          return  <Login />;
 
           default:
-            return ;
+
+            return<OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/> ;
     }
   }
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+
+      <header class = "navigation">
+        <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
       </header>
+        <div> {renderPage(currentPage)}</div>
+
     </div>
+
   );
 }
 

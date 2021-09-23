@@ -1,11 +1,15 @@
 import React from 'react';
+// import { Nav, NavItem, NavLink, Container, Row, Col } from 'reactstrap';
+
 
 
 const Navigation = (props) => {
 
 
 
-    const tabs = ['Home', 'Login',]
+
+    const tabs = ['Recipes', 'Login','Signup']
+
 
     return (
     <ul className="nav nav-tabs">
@@ -18,8 +22,7 @@ const Navigation = (props) => {
                     onClick={() => props.handlePageChange(tab)}
                     className={
                         props.currentPage === tab ? 'nav-link active' : 'nav-link'
-                    }
-                >
+                    }>
                     {tab}
                 </a>
             </li>
