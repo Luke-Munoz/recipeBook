@@ -16,6 +16,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebook', {
 
 mongoose.set('debug', true);
 
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, '../client/public')));
+}
 
 
 app.listen(PORT, () => console.log(`You are connected to ${PORT}`));
