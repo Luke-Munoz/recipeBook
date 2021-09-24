@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
+//import {BrowserRouter as Router, Route, Switch} from 'react-route-dom';
 import './App.css';
-import Recipes from './components/recipes'
+import Recipes from './components/pages/ViewBlogPage'
 import Navigation from './components/nav';
-import OnLoadPage from './components/on-load-page';
-import Login from './components/login';
+import OnLoadPage from './components/pages/OnLoadPage';
+import Login from './components/pages/Login';
+import Home from './components/pages/Home';
+import Signup from './components/pages/Signup'
 
 function App() {
 const [currentPage, handlePageChange] = useState('Home')
@@ -11,9 +14,11 @@ const [currentPage, handlePageChange] = useState('Home')
 
   const renderPage = () => {
     switch (currentPage) {
+      case 'Signup':
+        return <Signup />;
+
       case 'Navigation':
         return <Navigation/>;
-
 
         case 'Recipes':
           return  <Recipes />;
@@ -24,13 +29,12 @@ const [currentPage, handlePageChange] = useState('Home')
           default:
 
             return<OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/> ;
-
     }
   }
 
 
   return (
-    <div className="App">
+    <div>
 
       <header class = "navigation">
         <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
@@ -38,6 +42,7 @@ const [currentPage, handlePageChange] = useState('Home')
         <div> {renderPage(currentPage)}</div>
 
     </div>
+
   );
 }
 
