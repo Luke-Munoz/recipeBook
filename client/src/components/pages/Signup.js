@@ -1,34 +1,55 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { createUSER } from '../../../../controllers/user-controller'
+
+
+
 
         function Signup(props) {
-        //const [formState, setFormState] = useState({email:'', password: ''});
-        //const handleFormSubmit
-        //const handleChange
+
+                const [formState, setFormState] = useState ({email: '', password: ''});
+
+        async function signUpFormHandler (e) {
+                event.preventDefault();
+
+                const create_username = document.querySelector('input[name= "username"]').value;
+                const create_password = document.querySelector('input[name= "password"]').value;
+                const create_user_email = document.querySelector('input[name= "email"]').value;
+
+                const response = await fetch('/api/user', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                                create_username,
+                                create_password,
+                                create_user_email
+                        }),
+                        headers: {
+                                'Content-Type': 'application/json'
+                        }
+                .then(response => response.json())
+                            .then(serverResponse => {
+                                    if(serverResponse.message) {
+                                            throw new Error(serverResponse);
+                                    }
+                            }).catch(err => {
+                                    res.status(404).json({message:'failed'});
+                            })
+                });
 
 
+        }
 
 return(
             <div>
         <h2>Signup</h2>
                     <form >
                             <div>
-                                    <label htmlFor="firstName">First Name:</label>
+                                    <label htmlFor="username">Username:</label>
                                     <input
-                                    placeholder="First Name"
-                                    name = "firstName"
-                                    type = "firstName"
-                                    id = "firstName"
+                                    placeholder="Username"
+                                    name = "username"
+                                    type = "username"
+                                    id = "username"
                                     //onchange
-                                    />
-                            </div>
-                            <div>
-                                    <label htmlFor="lastName">Last Name:</label>
-                                    <input
-                                    placeholder="Last Name"
-                                    name = "lastName"
-                                    type = "lastName"
-                                    id = "lastName"
-                                    //onChange
                                     />
                             </div>
                             <div>
@@ -47,7 +68,7 @@ return(
                                     placeholder= "*******"
                                     name = "password"
                                     type = "password"
-                                    id = "pwd"
+                                    id = "password"
                                     //onChange
                                     />
                             </div>
