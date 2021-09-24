@@ -19,6 +19,7 @@ const RecipesSchema = new Schema({
         type: String,
         required: true
     },
+    // need to reference the comment model to get the information of the comments
     comments: {
         type: String,
         required: false,
