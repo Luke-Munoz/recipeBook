@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
         function Signup(props) {
         //const [formState, setFormState] = useState({email:'', password: ''});
@@ -8,54 +9,58 @@ import React from 'react';
 
 
 return(
-            <div>
-        <h2>Signup</h2>
-                    <form >
-                            <div>
-                                    <label htmlFor="firstName">First Name:</label>
-                                    <input
-                                    placeholder="First Name"
-                                    name = "firstName"
-                                    type = "firstName"
-                                    id = "firstName"
-                                    //onchange
-                                    />
-                            </div>
-                            <div>
-                                    <label htmlFor="lastName">Last Name:</label>
-                                    <input
-                                    placeholder="Last Name"
-                                    name = "lastName"
-                                    type = "lastName"
-                                    id = "lastName"
-                                    //onChange
-                                    />
-                            </div>
-                            <div>
-                                    <label htmlFor="email">Email:</label>
-                                    <input
-                                    placeholder="youremail@hotmail.com"
-                                    name = "email"
-                                    type = "email"
-                                    id = "email"
-                                    //onChange
-                                    />
-                            </div>
-                            <div>
-                                    <label htmlFor="pwd">Password:</label>
-                                    <input
-                                    placeholder= "*******"
-                                    name = "password"
-                                    type = "password"
-                                    id = "pwd"
-                                    //onChange
-                                    />
-                            </div>
-                            <div>
-                                    <button type = "submit">Submit</button>
-                            </div>
-                    </form>
-            </div>
+        <Container className="forms-background">
+                <Row>
+                        <Col>
+                                <h2 className="header-2">Signup</h2>
+                        </Col>
+                </Row>
+                <Form>
+                        <FormGroup>
+                                <Label for="firstName">First Name: </Label>
+                                <Input
+                                placeholder="First Name"
+                                name = "firstName"
+                                type = "firstName"
+                                id = "firstName"
+                                //onchange
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                                <Label for="lastName">Last Name: </Label>
+                                <Input
+                                placeholder="Last Name"
+                                name = "lastName"
+                                type = "lastName"
+                                id = "lastName"
+                                //onChange
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                                <Label for="email">Email: </Label>
+                                <Input
+                                placeholder="youremail@hotmail.com"
+                                name = "email"
+                                type = "email"
+                                id = "email"
+                                //onChange
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                                <Label for="pwd">Password: </Label>
+                                <Input
+                                placeholder= "*******"
+                                name = "password"
+                                type = "password"
+                                id = "pwd"
+                                //onChange
+                                />
+                        </FormGroup>
+                        <FormGroup>
+                                <Button className="submitBtn" type = "submit">Submit</Button>
+                        </FormGroup>
+                </Form>
+        </Container>
 
 )
 }
