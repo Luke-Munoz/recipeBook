@@ -11,7 +11,7 @@ function Login(props){
     return (
         <div>
             <h2>Login</h2>
-            <form onSubmit = "">
+            <form onSubmit = {Login}>
                 <div className="flex-row space-between">
                     <label htmlFor="email">Email address:</label>
                     <input
@@ -19,7 +19,7 @@ function Login(props){
                     name="email"
                     type = "email"
                     id = "email"
-                    onChange = ""
+
                     />
 
                 </div>
@@ -30,7 +30,7 @@ function Login(props){
                     name = "password"
                     type = "password"
                     id = "pwd"
-                    onChange = ""
+
                     />
                 </div>
                 {/*{error ? (*/}
@@ -40,7 +40,7 @@ function Login(props){
                 {/*    </div>*/}
                 {/*) : null}*/}
                 <div>
-                <button type = "sumit">Submit</button>
+                <button type = "submit">Submit</button>
               </div>
             </form>
         </div>

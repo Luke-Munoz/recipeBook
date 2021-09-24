@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { createUSER } from '../../../../controllers/user-controller'
+
 
 
 
@@ -9,39 +9,43 @@ import { createUSER } from '../../../../controllers/user-controller'
                 const [formState, setFormState] = useState ({email: '', password: ''});
 
         async function signUpFormHandler (e) {
-                event.preventDefault();
-
+                e.preventDefault();
+                try {
                 const create_username = document.querySelector('input[name= "username"]').value;
                 const create_password = document.querySelector('input[name= "password"]').value;
                 const create_user_email = document.querySelector('input[name= "email"]').value;
 
+
+
+                console.log(create_username,create_password,create_user_email);
                 const response = await fetch('/api/user', {
                         method: 'POST',
                         body: JSON.stringify({
-                                create_username,
-                                create_password,
-                                create_user_email
+                                username: create_username,
+                              password:  create_password,
+                              email:  create_user_email
                         }),
                         headers: {
                                 'Content-Type': 'application/json'
                         }
-                .then(response => response.json())
-                            .then(serverResponse => {
-                                    if(serverResponse.message) {
-                                            throw new Error(serverResponse);
-                                    }
-                            }).catch(err => {
-                                    res.status(404).json({message:'failed'});
-                            })
-                });
+
+                })
+        const serverResponse = await response.json()
+                            if(serverResponse.message) {
+                                    throw new Error(serverResponse);
+                            }
+                            console.log(serverResponse)
 
 
+                    }catch (err){
+                        console.log(err)
+                    }
         }
 
 return(
             <div>
         <h2>Signup</h2>
-                    <form >
+                    <form onSubmit = {signUpFormHandler}>
                             <div>
                                     <label htmlFor="username">Username:</label>
                                     <input
@@ -49,7 +53,7 @@ return(
                                     name = "username"
                                     type = "username"
                                     id = "username"
-                                    //onchange
+
                                     />
                             </div>
                             <div>
@@ -59,7 +63,7 @@ return(
                                     name = "email"
                                     type = "email"
                                     id = "email"
-                                    //onChange
+
                                     />
                             </div>
                             <div>
@@ -69,7 +73,7 @@ return(
                                     name = "password"
                                     type = "password"
                                     id = "password"
-                                    //onChange
+
                                     />
                             </div>
                             <div>
