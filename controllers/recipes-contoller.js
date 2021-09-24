@@ -1,7 +1,7 @@
 const { Recipe } = require('../models')
 
 const recipesController = {
-    getAllPizza(req, res) {
+    getAllRecipe(req, res) {
         Recipe.find({})
             .populate({
                 path: 'comments',
@@ -24,7 +24,13 @@ const recipesController = {
             })
             .select('-__v')
             .sort({ _id: -1 })
-            .then(dbRecipeData => res.json(dbRecipeData))
+            .then(dbRecipeData => {
+                if (!dbRecipeData) {
+                    res.status(400).json({ message: 'No recipe found with this id' });
+                    return;
+                }
+                res.json(deRecipeData);
+            })
             .catch(err => {
                 console.log(err);
                 res.sendStatus(400);
@@ -34,7 +40,7 @@ const recipesController = {
     createRecipe({ body }, res) {
         Recipe.create(body)
             .then(dbRecipeData => res.json(dbRecipeData))
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     },
 
     updateRecipe({ params, body }, res) {

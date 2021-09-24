@@ -1,11 +1,11 @@
 const router = require('express').Router();
+
 const {
     createRecipe,
     updateRecipe,
     getAllRecipe,
     getRecipeById
-} = require( //make the route for the controler file and imput it here)
-)
+} = require( '../../controllers/recipes-contoller');
 
 router.route('/').get(getAllRecipe).post(createRecipe)
 

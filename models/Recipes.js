@@ -1,11 +1,13 @@
 const { Schema, model } = require('mongoose');
+
 const dateFormat = require('../utils/dateFormat');
+
 const RecipesSchema = new Schema({
-    RecipeTitle: {
+    recipeTitle: {
         type: String,
         required: true,
     },
-    RecipeText: {
+    recipeText: {
         type: String,
         required: true,
         minlength: 1,

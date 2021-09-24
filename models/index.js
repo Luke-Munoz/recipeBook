@@ -1,4 +1,4 @@
 const User = require('./User');
-// placeholder for importing the recipe model //
+const Recipe = require('./Recipes');
 
-module.exports = { User };
+module.exports = { User, Recipe };
