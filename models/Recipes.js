@@ -15,12 +15,12 @@ const RecipesSchema = new Schema({
     },
 
     //import users data and use it here
-    userName: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
+    // userName: [
+    //     {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'User'
+    //     }
+    // ],
     // need to reference the comment model to get the information of the comments
     comments: [
         {
@@ -40,16 +40,11 @@ const RecipesSchema = new Schema({
         virtuals: true,
     },
     id: false
-}, );
-
-
-RecipesSchema.virtual('reacitonCount').get(function() {
-    return this.comments.length;
 });
 
-RecipesSchema.virtual('userCount').get(function() {
-    return this.userName.length;
-})
+RecipesSchema.virtual('commentCount').get(function() {
+    return this.comments.length;
+});
 
 const Recipe = model('Recipe', RecipesSchema);
 module.exports = Recipe;
