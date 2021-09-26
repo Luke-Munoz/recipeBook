@@ -9,8 +9,7 @@ const {
 router.route('/:pizzaId').post(addComment);
 
 router
-    .route( //make the route to hit the id of the recipe and the id of the comment)
-    )
+    .route('/:pizzaId/:commentId')
     .put(addReply)
     .delete(removeComment);
 

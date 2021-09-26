@@ -5,7 +5,7 @@ const recipesController = {
         Recipe.find({})
             .populate({
                 path: 'comments',
-                select: '-__V'
+                select: '-__v'
             })
             .select('-__v')
             .sort({ _id: -1 })
@@ -20,7 +20,7 @@ const recipesController = {
         Recipe.findOne({ _id: parmas.id })
             .populate({
                 path: 'comments',
-                select: '-__V'
+                select: '-__v'
             })
             .select('-__v')
             .sort({ _id: -1 })
