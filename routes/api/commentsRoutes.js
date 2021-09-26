@@ -4,8 +4,7 @@ const {
     removeComment,
     addReply,
     removeReply
-} = require( //make the route to the controller file for the comments)
-)
+} = require('../../controllers/comments-controller');
 
 router.route('/:pizzaId').post(addComment);
 
