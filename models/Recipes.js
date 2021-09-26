@@ -13,28 +13,16 @@ const RecipesSchema = new Schema({
         minlength: 1,
         maxLength: 280
     },
-
-    // import users data and use it here
-    userName: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'User'
-        }
-    ],
-    // need to reference the comment model to get the information of the comments
-    comments: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Comment'
-        }
-    ],
-
+    createdBy: {
+        type: String,
+        required: true
+    },
     createdAt: {
         type: Date,
         default: Date.now,
         get: createdAtVal => dateFormat(createdAtVal)
-    }
-
+    },
+    comments: [],
 }, {
     toJSON: {
         virtuals: true,
@@ -42,9 +30,9 @@ const RecipesSchema = new Schema({
     id: false
 });
 
-RecipesSchema.virtual('commentCount').get(function() {
-    return this.comments.length;
-});
+// RecipesSchema.virtual('commentCount').get(function() {
+//     return this.comments.length;
+// });
 
-const Recipe = model('Recipe', RecipesSchema);
-module.exports = Recipe;
+const Recipes = model('Recipes', RecipesSchema);
+module.exports = Recipes;
