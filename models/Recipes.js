@@ -14,13 +14,13 @@ const RecipesSchema = new Schema({
         maxLength: 280
     },
 
-    //import users data and use it here
-    // userName: [
-    //     {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'User'
-    //     }
-    // ],
+    // import users data and use it here
+    userName: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'User'
+        }
+    ],
     // need to reference the comment model to get the information of the comments
     comments: [
         {
