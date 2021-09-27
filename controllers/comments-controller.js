@@ -36,7 +36,7 @@ const commentController = {
                     res.status(404).json({ message: 'No recipe found with this id!' });
                     return;
                 }
-                res.json(dbRecpiesData);
+                res.json(dbRecipesData);
             })
             .catch(err => res.json(err));
     },
@@ -48,7 +48,7 @@ const commentController = {
                     res.status(404).json({ message: 'no recipe found with this id!' });
                     return;
                 }
-                res.json(dbRecipeData);
+                res.json(dbRecipesData);
             })
             .catch(err => res.json(err));
     },

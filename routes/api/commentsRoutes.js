@@ -6,10 +6,10 @@ const {
     removeReply
 } = require('../../controllers/comments-controller');
 
-router.route('/:pizzaId').post(addComment);
+router.route('/:recipeId').post(addComment);
 
 router
-    .route('/:pizzaId/:commentId')
+    .route('/:recipeId/:commentId')
     .put(addReply)
     .delete(removeComment);
 
