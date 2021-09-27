@@ -3,12 +3,12 @@ const { Recipes } = require('../models')
 const recipesController = {
     getAllRecipe(req, res) {
         Recipes.find({})
-            // .populate({
-            //     path: 'comments',
-            //     select: '-__v'
-            // })
-            // .select('-__v')
-            // .sort({ _id: -1 })
+            .populate({
+                path: 'comments',
+                select: '-__v'
+            })
+            .select('-__v')
+            .sort({ _id: -1 })
             .then(dbRecipesData => res.json(dbRecipesData))
             .catch(err => {
                 console.log(err);
@@ -18,12 +18,11 @@ const recipesController = {
 
     getRecipeById({ params }, res) {
         Recipes.findOne({ _id: params.id })
-            // .populate({
-            //     path: 'comments',
-            //     select: '-__v'
-            // })
-            // .select('-__v')
-            // .sort({ _id: -1 })
+            .populate({
+                path: 'comments',
+                select: '-__v'
+            })
+            .select('-__v')
             .then(dbRecipesData => {
                 if (!dbRecipesData) {
                     res.status(400).json({ message: 'No recipe found with this id' });

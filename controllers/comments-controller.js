@@ -1,59 +1,67 @@
-const { Comment, Recipe } = require("../models");
+const { Comments, Recipes } = require("../models");
 
 
 const commentController = {
 
     addComment({ params, body }, res) {
         console.log(body);
-        Comment.create(body)
+        Comments.create(body)
             .then(({ _id }) => {
-                return Recipe.findOneAndUpdate({ _id: params.recipeId }, { $push: { comments: _id } }, { new: true });
+                return Recipes.findOneAndUpdate({ _id: params.recipeId }, { $push: { comments: _id } }, { new: true });
             })
-            .then(dbRecipeData => {
-                if (!dbRecipeData) {
+            .then(dbRecipesData => {
+                if (!dbRecipesData) {
                     res.status(404).json({ message: 'No recipe found with this id!' });
                     return;
                 }
-                res.json(dbRecipeData);
+                res.json(dbRecipesData);
             })
             .catch(err => res.json(err));
     },
 
     removeComment({ params }, res) {
-        Comment.findOneAndDelete({ _id: params.commentId })
+        Comments.findOneAndDelete({ _id: params.commentId })
             .then(deletedComment => {
                 if (!deletedComment) {
                     return res.status(404).json({ message: 'No comment with this id!' });
                 }
-                return Recipe.findOneAndUpdate(
+                return Recipes.findOneAndUpdate(
                     { _id: params.recipeId },
                     { $pull: { comments: params.commentId } },
                     { new: true }
                 );
             })
-            .then(dbRecipeData => {
-                if (!dbRecipeData) {
+            .then(dbRecipesData => {
+                if (!dbRecipesData) {
                     res.status(404).json({ message: 'No recipe found with this id!' });
                     return;
                 }
-                res.json(dbRecpieData);
+                res.json(dbRecpiesData);
             })
             .catch(err => res.json(err));
     },
 
     addReply({ params, body }, res) {
-        Comment.findOneAndUpdate({ _id: params.commentId }, { $push: { replies: body } }, { new: true, runValidators: true })
-            .then(dbRecipeData => {
-                if (!dbRecipeData) {
+        Comments.findOneAndUpdate({ _id: params.commentId }, { $push: { replies: body } }, { new: true })
+            .then(dbRecipesData => {
+                if (!dbRecipesData) {
                     res.status(404).json({ message: 'no recipe found with this id!' });
                     return;
                 }
                 res.json(dbRecipeData);
             })
             .catch(err => res.json(err));
+    },
+
+    removeReply({ params }, res) {
+        Comments.findOneAndUpdate(
+            { _id: params.commentId },
+            { $pull: { replies: { replyId: params.replyId } } },
+            { new: true }
+        )
+        .then(dbRecipesData => res.json(dbRecipesData))
+        .catch(err => res.json(err));
     }
-
-
 }
 
 module.exports = commentController;

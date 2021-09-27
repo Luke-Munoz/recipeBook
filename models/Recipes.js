@@ -22,7 +22,12 @@ const RecipesSchema = new Schema({
         default: Date.now,
         get: createdAtVal => dateFormat(createdAtVal)
     },
-    comments: [],
+    comments: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: 'Comments' 
+        }
+    ]
 }, {
     toJSON: {
         virtuals: true,
@@ -30,9 +35,9 @@ const RecipesSchema = new Schema({
     id: false
 });
 
-// RecipesSchema.virtual('commentCount').get(function() {
-//     return this.comments.length;
-// });
+RecipesSchema.virtual('commentCount').get(function() {
+    return this.comments.length;
+});
 
 const Recipes = model('Recipes', RecipesSchema);
 module.exports = Recipes;

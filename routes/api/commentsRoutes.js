@@ -1,4 +1,4 @@
-const router = require('express').Router()
+const router = require('express').Router();
 const {
     addComment,
     removeComment,
@@ -13,7 +13,6 @@ router
     .put(addReply)
     .delete(removeComment);
 
-router.route( //make the route to hit the pizzaId and the commentId and then replyid all in one route)
-).delete(removeReply);
+router.route('/:recipeId/:commentId/:replyId').delete(removeReply);
 
 module.exports = router
