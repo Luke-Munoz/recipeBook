@@ -1,11 +1,17 @@
+const session = require('express-session');
 const mongoose = require('mongoose');
 const express = require('express');
+const MongoStore = require('connect-mongo');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(session({
+    secret: 'foo',
+    store: new MongoStore()
+}));
 
 app.use(require('./routes'));
 
