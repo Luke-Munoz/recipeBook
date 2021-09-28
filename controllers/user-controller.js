@@ -43,7 +43,24 @@ const userController = {
                 res.json(dbUserData);
             })
             .catch(err => res.status(400).json(err));
+    },
+
+    login(req,res) {
+        User.findOne({email: params.idl})
+    },
+
+    logout(req,res) {
+        if(req.session.loggedIn){
+            req.session.destroy(()=>{
+
+                res.status(204).end();
+            })
+        }
+        else {
+            res.status(404).end();
+        }
     }
+
 }
 
 module.exports = userController;

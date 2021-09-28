@@ -8,15 +8,39 @@ function Login(props){
 
 
 
-    const clickEventHandler = (e) => {
-        props.handlePageChange('LoggedIn')
+    async function loginFormHandler(e) {
+        e.preventDefault();
+        try{
+
+        const email = document.querySelector('input[name= "email"]').value;
+        const password = document.querySelector('input[name= "password"]').value;
+
+        const response = await fetch('/api/users/login',{
+            method: 'post',
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            const serverResponse = await response.json()
+            if(serverResponse.message){
+                new Error(serverResponse);
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
+
+
 
 
     return (
         <div>
             <h2>Login</h2>
-            <form onSubmit = {Login}>
+            <form onSubmit = {loginFormHandler}>
                 <div className="flex-row space-between">
                     <label htmlFor="email">Email address:</label>
                     <input
@@ -34,7 +58,7 @@ function Login(props){
                     placeholder="**********"
                     name = "password"
                     type = "password"
-                    id = "pwd"
+                    id = "password"
 
                     />
                 </div>

@@ -6,7 +6,7 @@ import {
 
 // import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactstrap';
 function Recipes(props){
-    const response = await fetch('/api/user')
+
 
     return (
         <CardDeck>
@@ -39,6 +39,6 @@ function Recipes(props){
             </Card>
         </CardDeck>
     );
-};
+}
 
 export default Recipes

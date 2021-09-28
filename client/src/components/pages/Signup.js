@@ -3,7 +3,7 @@ import React, {useState} from 'react';
 
 function Signup(props) {
 
-    const [formState, setFormState] = useState({email: '', password: ''});
+    //const [formState, setFormState] = useState({email: '', password: ''});
 
     async function signUpFormHandler(e) {
         e.preventDefault();
@@ -28,7 +28,8 @@ function Signup(props) {
             })
             const serverResponse = await response.json()
             if (serverResponse.message) {
-                throw new Error(serverResponse);
+                //throw?
+                new Error(serverResponse);
             }
             console.log(serverResponse)
 
