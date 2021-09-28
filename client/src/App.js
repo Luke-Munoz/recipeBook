@@ -36,7 +36,7 @@ const [currentPage, handlePageChange] = useState('Home')
   return (
     <div>
 
-      <header class = "navigation">
+      <header className = "navigation">
         <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
       </header>
         <div> {renderPage(currentPage)}</div>
