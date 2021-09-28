@@ -44,10 +44,7 @@ const userController = {
             })
             .catch(err => res.status(400).json(err));
     },
-
-    login(req,res) {
-        User.findOne({email: params.idl})
-    },
+    login(){},
 
     logout(req,res) {
         if(req.session.loggedIn){
