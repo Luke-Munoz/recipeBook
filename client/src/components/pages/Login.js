@@ -48,7 +48,6 @@ function Login(props){
                     name="email"
                     type = "email"
                     id = "email"
-
                     />
 
                 </div>
@@ -62,12 +61,7 @@ function Login(props){
 
                     />
                 </div>
-                {/*{error ? (*/}
 
-                {/*    <div>*/}
-                {/*        <p>Either the email or password are incoorrect.</p>*/}
-                {/*    </div>*/}
-                {/*) : null}*/}
                 <div>
                 <button type = "submit">Submit</button>
               </div>
