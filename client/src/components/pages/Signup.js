@@ -73,7 +73,6 @@ return(
                                     name = "password"
                                     type = "password"
                                     id = "password"
-
                                     />
                             </div>
                             <div>
