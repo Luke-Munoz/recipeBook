@@ -1,13 +1,12 @@
-const seeder = require("mongoose-seed");
-const { User, Recipes, Comments } = require("./models/index");
+const seeder = require('mongoose-seed');
 const dateFormat = require("../utils/dateFormat");
 // Connect to MongoDB via Mongoose
-seeder.connect("mongodb://localhost/recipebook", function() {
+seeder.connect('mongodb://localhost/recipebook', function() {
     // Load Mongoose models
     seeder.loadModels([
-        "models/User.js",
-        "models/Recipes.js",
-        "models/Comments.js",
+        "server/User.js",
+        "server/Recipes.js",
+        "server/Comments.js",
     ]);
     // Clear specified collections
     seeder.clearModels(["User", "Recipes", "Comments"], function() {
