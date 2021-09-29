@@ -41,9 +41,9 @@ const data = [{
         },
     ],
     Recipes: [{
-            RecipeTitle: "Yummy Food",
-            RecipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            userName: "Mario",
+            recipeTitle: "Yummy Food",
+            recipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+            createdBy: "Mario",
             createdAt: {
                 type: Date,
                 default: Date.now,
@@ -52,9 +52,9 @@ const data = [{
             comments: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         },
         {
-            RecipeTitle: "Steak",
-            RecipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            userName: "Yoda",
+            recipeTitle: "Steak",
+            recipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+            createdBy: "Yoda",
             createdAt: {
                 type: Date,
                 default: Date.now,
@@ -63,9 +63,9 @@ const data = [{
             comments: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         },
         {
-            RecipeTitle: "Soup",
-            RecipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            userName: "Bowser",
+            recipeTitle: "Soup",
+            recipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+            createdBy: "Bowser",
             createdAt: {
                 type: Date,
                 default: Date.now,
@@ -74,9 +74,9 @@ const data = [{
             comments: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         },
         {
-            RecipeTitle: "Sandwhich",
-            RecipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            userName: "Pikachu",
+            recipeTitle: "Sandwhich",
+            recipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+            createdBy: "Pikachu",
             createdAt: {
                 type: Date,
                 default: Date.now,
@@ -85,9 +85,9 @@ const data = [{
             comments: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
         },
         {
-            RecipeTitle: "Water",
-            RecipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
-            userName: "Jeff",
+            recipeTitle: "Water",
+            recipeText: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+            createdBy: "Jeff",
             createdAt: {
                 type: Date,
                 default: Date.now,
