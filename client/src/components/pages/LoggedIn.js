@@ -16,7 +16,7 @@ function LoggedIn() {
                     />
                 </div>
                 <div>
-                    <label htmlFor="recipeTest">Recipe Ingredients:</label>
+                    <label htmlFor="recipeText">Recipe Ingredients:</label>
                     <input 
                     placeholder = "Recipe Ingredients"
                     name = "recipeText"
