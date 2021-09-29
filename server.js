@@ -9,8 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
-    secret: 'foo',
-    store:  new MongoStore.create({ mongoUrl: 'mongodb://localhost/recipebook'})
+    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/recipebook'})
 }));
 
 app.use(require('./routes'));
