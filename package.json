@@ -8,7 +8,8 @@
     "build": "cd client && npm run build",
     "develop": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "seed": "node seed/recipes-seed.js",
-    "used": "node seed/user-seed.js"
+    "used": "node seed/user-seed.js",
+    "comment": "node seed/comments-seed.js"
   },
   "keywords": [],
   "author": "",

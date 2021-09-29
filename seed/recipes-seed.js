@@ -35,7 +35,7 @@ const data = [
             },
             {
                 recipeTitle: "Soup",
-                recipeText: "This water recipe needs one pot of boiing water. 2 cups of minced peppers, celery, and mushrooms. Chop one piece of chicken into cubes to be put in the pot once the water in the pot is at a boil. Stir in the ingredients for twenty to fifty minutes before serving. Let the soup cool for 10 to 15 minutes before serving",
+                recipeText: "This recipe needs one pot of boiing water. 2 cups of minced peppers, celery, and mushrooms. Chop one piece of chicken into cubes to be put in the pot once the water in the pot is at a boil. Stir in the ingredients for twenty to fifty minutes before serving. Let the soup cool for 10 to 15 minutes before serving",
                 createdBy: "Johnathon",
             },
             {
