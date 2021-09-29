@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, FormGroup, Label, Input, Container } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
 
 function Login(props){
@@ -12,36 +12,42 @@ function Login(props){
         <Container className="forms-background">
             <h2 className="header-2" >Login</h2>
             <Form onSubmit = "">
-                <FormGroup className="flex-row space-between">
-                    <Label htmlFor="email">Email address: </Label>
-                    <Input
-                    placeholder="youremail@gmail.com"
-                    name="email"
-                    type = "email"
-                    id = "email"
-                    onChange = ""
-                    />
+                <Row form>
+                    <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="email">Email address: </Label>
+                            <Input
+                            placeholder="youremail@gmail.com"
+                            name="email"
+                            type = "email"
+                            id = "email"
+                            onChange = ""
+                            />
 
-                </FormGroup>
-                <FormGroup className="flex-row space-between">
-                    <Label htmlFor="pwd">Password: </Label>
-                    <Input
-                    placeholder="**********"
-                    name = "password"
-                    type = "password"
-                    id = "pwd"
-                    onChange = ""
-                    />
-                </FormGroup>
-                {/*{error ? (*/}
+                        </FormGroup>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="pwd">Password: </Label>
+                            <Input
+                            placeholder="**********"
+                            name = "password"
+                            type = "password"
+                            id = "pwd"
+                            onChange = ""
+                            />
+                        </FormGroup>
+                        {/*{error ? (*/}
 
-                {/*    <div>*/}
-                {/*        <p>Either the email or password are incoorrect.</p>*/}
-                {/*    </div>*/}
-                {/*) : null}*/}
-                <FormGroup>
-                    <Button className="submitBtn" type="submit">Submit</Button>{' '}
-                </FormGroup>
+                        {/*    <div>*/}
+                        {/*        <p>Either the email or password are incoorrect.</p>*/}
+                        {/*    </div>*/}
+                        {/*) : null}*/}
+                        
+                        <FormGroup className="buttonDiv">
+                            <Button className="submitBtn" type="submit">Submit</Button>{' '}
+                        </FormGroup>
+                        
+                    </Col>
+                </Row>
             </Form>
         </Container>
     )
