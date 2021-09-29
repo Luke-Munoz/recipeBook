@@ -1,5 +1,5 @@
 import React from 'react';
-// import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
 
 function Login(props){
@@ -14,41 +14,47 @@ function Login(props){
 
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit = {Login}>
-                <div className="flex-row space-between">
-                    <label htmlFor="email">Email address:</label>
-                    <input
-                    placeholder="youremail@gmail.com"
-                    name="email"
-                    type = "email"
-                    id = "email"
+        <Container className="forms-background">
+            <h2 className="header-2" >Login</h2>
+            <Form onSubmit = "">
+                <Row form>
+                    <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="email">Email address: </Label>
+                            <Input
+                            placeholder="youremail@gmail.com"
+                            name="email"
+                            type = "email"
+                            id = "email"
+                            onChange = ""
+                            />
 
-                    />
+                        </FormGroup>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="pwd">Password: </Label>
+                            <Input
+                            placeholder="**********"
+                            name = "password"
+                            type = "password"
+                            id = "pwd"
+                            onChange = ""
+                            />
+                        </FormGroup>
+                        {/*{error ? (*/}
 
-                </div>
-                <div className="flex-row space-between">
-                    <label htmlFor="pwd">Password:</label>
-                    <input
-                    placeholder="**********"
-                    name = "password"
-                    type = "password"
-                    id = "pwd"
-
-                    />
-                </div>
-                {/*{error ? (*/}
-
-                {/*    <div>*/}
-                {/*        <p>Either the email or password are incoorrect.</p>*/}
-                {/*    </div>*/}
-                {/*) : null}*/}
-                <div>
-                <button type = "submit">Submit</button>
-              </div>
-            </form>
-        </div>
+                        {/*    <div>*/}
+                        {/*        <p>Either the email or password are incoorrect.</p>*/}
+                        {/*    </div>*/}
+                        {/*) : null}*/}
+                        
+                        <FormGroup className="buttonDiv">
+                            <Button className="submitBtn" type="submit">Submit</Button>{' '}
+                        </FormGroup>
+                        
+                    </Col>
+                </Row>
+            </Form>
+        </Container>
     )
 }
 

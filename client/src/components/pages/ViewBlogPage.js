@@ -3,6 +3,7 @@ import {
     Card, Button, CardImg, CardTitle, CardText, CardDeck,
     CardSubtitle, CardBody
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 
 // import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactstrap';
 function Recipes(props){
@@ -39,6 +40,56 @@ function Recipes(props){
             </Card>
         </CardDeck>
     );
+
+    
+};
+
+Card.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    inverse: PropTypes.bool,
+    color: PropTypes.string,
+    body: PropTypes.bool,
+    className: PropTypes.string
+  };
+  
+CardBody.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+};
+  
+CardDeck.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+};
+  
+CardImg.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string,
+    // Use top or bottom to position image via "card-img-top" or "card-img-bottom"
+    top: PropTypes.bool,
+    bottom: PropTypes.bool
+};
+
+CardSubtitle.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+};
+  
+CardText.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
+};
+  
+CardTitle.propTypes = {
+    // Pass in a Component to override default element
+    tag: PropTypes.oneOfType([PropTypes.func, PropTypes.string]),
+    className: PropTypes.string
 };
 
 export default Recipes

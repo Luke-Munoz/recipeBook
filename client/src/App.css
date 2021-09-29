@@ -28,6 +28,92 @@
   color: #61dafb;
 }
 
+html {
+  /* background-color: #ffb87a; */
+  background-image:  linear-gradient(to bottom, rgba(255,184,121,0.5), rgba(255, 255, 255, 0.3)),url('components/images/pexels-engin-akyurt-1527603.jpg');
+  background-size: 400%;
+  background-repeat: none;
+  /* background-position: absolute; */
+  background-position-y: 20%;
+  background-position-x: 50%;
+  background-attachment: fixed;
+}
+
+/* NavBar */
+
+.navigation ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-around;
+  padding-left: 0px;
+  background-color: white;
+  margin: 0px;
+  padding: 8px 5px;
+}
+
+.navigation ul li a {
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+  color:#ffb87a;
+}
+
+
+/* OnLoad Page */
+
+.display-3 {
+  text-align: center;
+}
+
+.lead {
+  margin: 5px;
+  text-align: center;
+}
+
+
+
+/* Signup and Login Styles */
+
+.forms-background {
+  margin: 30px 20px;
+  background-color: white;
+  padding: 5px 5px 15px 5px;
+  border-radius: 10px;
+}
+
+.header-2 {
+  font-size: 32px;
+  text-align: center;
+  margin: 5px 5px 20px 5px;
+}
+
+.submitBtn {
+  text-align: center !important;
+  margin: 0 auto !important;
+  background-color: #ffb87a !important;
+  border-style: none !important;
+  border-radius: 4px;
+  padding: 7px;
+  color: #f5f5f5;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin: 10px;
+}
+.buttonDiv {
+  text-align: center;
+}
+
+
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
