@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 
@@ -7,6 +8,48 @@ function Signup(props) {
 //const handleChange
 
 
+
+
+
+
+
+
+
+                const [formState, setFormState] = useState ({email: '', password: ''});
+
+        async function signUpFormHandler (e) {
+                e.preventDefault();
+                try {
+                const create_username = document.querySelector('input[name= "username"]').value;
+                const create_password = document.querySelector('input[name= "password"]').value;
+                const create_user_email = document.querySelector('input[name= "email"]').value;
+
+
+
+                console.log(create_username,create_password,create_user_email);
+                const response = await fetch('/api/user', {
+                        method: 'POST',
+                        body: JSON.stringify({
+                                username: create_username,
+                              password:  create_password,
+                              email:  create_user_email
+                        }),
+                        headers: {
+                                'Content-Type': 'application/json'
+                        }
+
+                })
+        const serverResponse = await response.json()
+                            if(serverResponse.message) {
+                                    throw new Error(serverResponse);
+                            }
+                            console.log(serverResponse)
+
+
+                    }catch (err){
+                        console.log(err)
+                    }
+        }
 
         return (
                 <Container className="forms-background">
@@ -65,6 +108,7 @@ function Signup(props) {
                                         </Row>
                                 </Form>
                 </Container>
+
 
         )
 }

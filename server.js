@@ -9,9 +9,10 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGOD_URI || 'mongodb://localhost:/recipebook', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebook', {
+    useNewUrlParser: true,
     useUnifiedTopology: true
-})
+});
 
 mongoose.set('debug', true);
 
