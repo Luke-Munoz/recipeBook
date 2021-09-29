@@ -62,7 +62,31 @@ async function commentFormHandler(e){
 }
 
     //creates a reply on a comment
-async function replyFormHandler(e){}
+async function replyFormHandler(e){
+    e.preventDefault();
+    try {
+        const replyBody = document.querySelector('input[name = "fillertext"]').value;
+        const writtenBy = document.querySelector('input[name = "fillertext"]').value;
+
+        const response = await fetch('/api/:recipeId/:commentId', {
+            method: 'PUT',
+            body: JSON.stringify({
+                replyBody,
+                writtenBy
+            }),
+            headers: {
+                'Content-Type': 'application.json'
+            }
+        })
+        const serverResponse = await response.json()
+        if (serverResponse.message) {
+            new Error(serverResponse);
+        }
+        console.log(serverResponse)
+    }catch(err){
+        console.log(err)
+    }
+}
 
     //logs the user out
 async function logoutFormHandler(){

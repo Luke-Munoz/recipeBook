@@ -45,7 +45,7 @@ const userController = {
             .catch(err => res.status(400).json(err));
     },
 
-    login(){},
+   // login(){},
 
     logout(req,res) {
         if(req.session.loggedIn){
