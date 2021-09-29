@@ -1,14 +1,116 @@
 import React from 'react';
 //import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactStrap';
 function LoggedIn() {
+
+
+    //creates new recipes
+async function recipeFormHandler(e){
+    e.preventDefault();
+    try {
+        const title = document.querySelector('input[name = "recipeTitle"]').value;
+        const ingredients = document.querySelector('input[name = "recipeText"]').value;
+        const author = document.querySelector('input[name = "createdBy"]').value;
+
+
+        const response = await fetch('api/recipes', {
+            method: 'POST',
+            body: JSON.stringify({
+                title,
+                ingredients,
+                author
+            }),
+            headers: {
+                'Content-Type': 'application.json'
+            }
+        })
+        const serverResponse = await response.json()
+        if (serverResponse.message) {
+            new Error(serverResponse);
+        }
+        console.log(serverResponse)
+    } catch (err){
+        console.log(err)
+    }
+}
+
+    //creates new comment on posts
+async function commentFormHandler(e){
+    e.preventDefault();
+    try{
+
+    const comment = document.querySelector('input[name = "commentBody"]').value;
+    const comment_author = document.querySelector('input[name = "writtenBy"]').value;
+
+    const response = await fetch('/api/recipeId', {
+        method: 'POST',
+        body: JSON.stringify({
+            comment,
+            comment_author
+        }),
+        headers: {
+            'Content-Type': 'application.json'
+        }
+    })
+    const serverResponse = await response.json()
+        if(serverResponse.message){
+            new Error(serverResponse)
+        }
+        console.log(serverResponse);
+    } catch (err){
+        console.log(err);
+    }
+}
+
+    //creates a reply on a comment
+async function replyFormHandler(e){
+    e.preventDefault();
+    try {
+        const replyBody = document.querySelector('input[name = "fillertext"]').value;
+        const writtenBy = document.querySelector('input[name = "fillertext"]').value;
+
+        const response = await fetch('/api/:recipeId/:commentId', {
+            method: 'PUT',
+            body: JSON.stringify({
+                replyBody,
+                writtenBy
+            }),
+            headers: {
+                'Content-Type': 'application.json'
+            }
+        })
+        const serverResponse = await response.json()
+        if (serverResponse.message) {
+            new Error(serverResponse);
+        }
+        console.log(serverResponse)
+    }catch(err){
+        console.log(err)
+    }
+}
+
+    //logs the user out
+async function logoutFormHandler(){
+    const response = await fetch('api./users/logout', {
+        method: 'post',
+        headers: { 'Content-Type': 'application/json'}
+    });
+    if (response.ok){
+        document.location.replace ('/');
+    } else {
+        alert(response.statusText);
+    }
+
+}
+
+
     return (
         <div>
             <h1>Post A Recipe</h1>
             <form onSubmit = {recipeFormHandler}>
                 <div>
-                    <label htmlFor="recipeTtitle">Recipe Title:</label>
+                    <label htmlFor="recipeTitle">Recipe Title:</label>
                     <input
-                    placeholder = "Repice Title"
+                    placeholder = "Recipe Title"
                     name = "recipeTitle"
                     type = "recipeTitle"
                     id = "recipeTitle"
@@ -53,7 +155,7 @@ function LoggedIn() {
                     />
                 </div>
                 <div>
-                    <label htmlfor="writtenBy">Comment Written By:</label>
+                    <label htmlFor="writtenBy">Comment Written By:</label>
                     <input 
                     placeholder = "Comment Wriitten By"
                     name = "writtenBy"
@@ -80,7 +182,7 @@ function LoggedIn() {
                     />
                 </div>
                 <div>
-                    <label htmfor="writtenBy">Reply Written By:</label>
+                    <label htmlFor="writtenBy">Reply Written By:</label>
                     <input
                     placeholder = "Reply Written By"
                     name = "writtenBy"
@@ -91,6 +193,17 @@ function LoggedIn() {
                 </div>
                 <div>
                     <button type = "submit">Submit</button>
+                </div>
+            </form>
+            <form onSubmit={logoutFormHandler}>
+                <div>
+                    <label htmlFor="logoutButton">Logout</label>
+                    <input
+                    placeholder = "logout"
+                    name = "logout"
+                    type = "logout"
+                    id = "logout"
+                    />
                 </div>
             </form>
         </div>
