@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "cd client && npm run build",
     "develop": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
-    "seed": "node seed/seeder.js"
+    "seed": "node seed/recipes-seed.js"
   },
   "keywords": [],
   "author": "",
