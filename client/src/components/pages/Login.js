@@ -15,7 +15,7 @@ function Login(props){
         const email = document.querySelector('input[name= "email"]').value;
         const password = document.querySelector('input[name= "password"]').value;
 
-        const response = await fetch('/api/users/login',{
+        const response = await fetch('/api/user/login',{
             method: 'post',
             body: JSON.stringify({
                 email,
