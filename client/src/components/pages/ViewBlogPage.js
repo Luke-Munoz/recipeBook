@@ -69,9 +69,9 @@ async function replyFormHandler(e) {
             <img src={props.img} alt={props.name}/>
         </div>
         <div className = "card-details">
-            <h2>{title}</h2>
-            <h4>{createdBy}</h4>
-            <p>{body}</p>
+            {/*<h2>{title}</h2>*/}
+            {/*<h4>{createdBy}</h4>*/}
+            {/*<p>{body}</p>*/}
         </div>
     </div>
 
