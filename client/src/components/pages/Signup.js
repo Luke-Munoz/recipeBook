@@ -58,7 +58,7 @@ function Signup(props) {
                                         <h2 className="header-2">Signup</h2>
                                 </Col>
                         </Row>
-                                <Form>
+                                <Form onSubmit={signUpFormHandler}>
                                         <Row form>
                                                 <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                                                         <FormGroup>
@@ -68,7 +68,7 @@ function Signup(props) {
                                                                 name = "firstName"
                                                                 type = "firstName"
                                                                 id = "firstName"
-                                                                //onchange
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup>
@@ -78,7 +78,7 @@ function Signup(props) {
                                                                 name = "lastName"
                                                                 type = "lastName"
                                                                 id = "lastName"
-                                                                //onChange
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup>
@@ -88,17 +88,17 @@ function Signup(props) {
                                                                 name = "email"
                                                                 type = "email"
                                                                 id = "email"
-                                                                //onChange
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup>
-                                                                <Label for="pwd">Password: </Label>
+                                                                <Label for="password">Password: </Label>
                                                                 <Input
                                                                 placeholder= "*******"
                                                                 name = "password"
                                                                 type = "password"
-                                                                id = "pwd"
-                                                                //onChange
+                                                                id = "password"
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup className="buttonDiv">
@@ -112,6 +112,7 @@ function Signup(props) {
 
         )
 }
+
 
 
 

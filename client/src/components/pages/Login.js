@@ -8,12 +8,37 @@ function Login(props){
 
 
 
-    const clickEventHandler = (e) => {
-        props.handlePageChange('LoggedIn')
+    async function loginFormHandler(e) {
+        e.preventDefault();
+        try{
+
+        const email = document.querySelector('input[name= "email"]').value;
+        const password = document.querySelector('input[name= "password"]').value;
+
+        const response = await fetch('/api/user/login',{
+            method: 'post',
+            body: JSON.stringify({
+                email,
+                password
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            const serverResponse = await response.json()
+            if(serverResponse.message){
+                new Error(serverResponse);
+            }
+        } catch(err) {
+            console.log(err);
+        }
     }
 
 
+
+
     return (
+
         <Container className="forms-background">
             <h2 className="header-2" >Login</h2>
             <Form onSubmit = "">
@@ -55,6 +80,7 @@ function Login(props){
                 </Row>
             </Form>
         </Container>
+
     )
 }
 

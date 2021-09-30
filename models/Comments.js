@@ -55,6 +55,6 @@ CommentSchema.virtual('replyCount').get(function() {
     return this.replies.length;
 });
 
-const Comment = model('Comment', CommentSchema);
+const Comments = model('Comments', CommentSchema);
 
-module.exports = Comment;
+module.exports = Comments;

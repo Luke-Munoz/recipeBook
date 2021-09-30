@@ -4,7 +4,9 @@ const {
     getAllUser,
     createUser,
     updateUser,
-    deleteUser
+    deleteUser,
+    loginUser,
+    logoutUser
 } = require('../../controllers/user-controller');
 // Set up GET all and POST at /api/user
 router
@@ -12,10 +14,20 @@ router
     .get(getAllUser)
     .post(createUser);
 
-// set up for the PUT and DELET routes at /api/user/:id
+// set up for the PUT and DELETE routes at /api/user/:id
 router
     .route('/:id')
     .put(updateUser)
     .delete(deleteUser);
 
+// post routes for the login and logout
+ router
+     .route('/login')
+     .post(loginUser);
+
+ router
+     .route('/logout')
+     .post(logoutUser);
+
 module.exports = router;
+

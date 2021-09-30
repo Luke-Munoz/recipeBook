@@ -1,21 +1,18 @@
-const router = require('express').Router()
+const router = require('express').Router();
 const {
     addComment,
     removeComment,
     addReply,
     removeReply
-} = require( //make the route to the controller file for the comments)
-)
+} = require('../../controllers/comments-controller');
 
-router.route('/:pizzaId').post(addComment);
+router.route('/:recipeId').post(addComment);
 
 router
-    .route( //make the route to hit the id of the recipe and the id of the comment)
-    )
+    .route('/:recipeId/:commentId')
     .put(addReply)
     .delete(removeComment);
 
-router.route( //make the route to hit the pizzaId and the commentId and then replyid all in one route)
-).delete(removeReply);
+router.route('/:recipeId/:commentId/:replyId').delete(removeReply);
 
 module.exports = router

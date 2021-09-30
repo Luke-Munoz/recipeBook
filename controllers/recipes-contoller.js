@@ -1,52 +1,57 @@
 const { Recipes } = require('../models')
 
 const recipesController = {
-    getAllPizza(req, res) {
+    getAllRecipe(req, res) {
         Recipes.find({})
             .populate({
                 path: 'comments',
-                select: '-__V'
+                select: '-__v'
             })
             .select('-__v')
             .sort({ _id: -1 })
-            .then(dbRecipeData => res.json(dbRecipeData))
+            .then(dbRecipesData => res.json(dbRecipesData))
             .catch(err => {
                 console.log(err);
-                res.sendStatus(400);
+                res.status(400).json(err);
             });
     },
 
-    getRecipeById({ parmas }, res) {
-        Recipes.findOne({ _id: parmas.id })
+    getRecipeById({ params }, res) {
+        Recipes.findOne({ _id: params.id })
             .populate({
                 path: 'comments',
-                select: '-__V'
+                select: '-__v'
             })
             .select('-__v')
-            .sort({ _id: -1 })
-            .then(dbRecipeData => res.json(dbRecipeData))
+            .then(dbRecipesData => {
+                if (!dbRecipesData) {
+                    res.status(400).json({ message: 'No recipe found with this id' });
+                    return;
+                }
+                res.json(dbRecipesData);
+            })
             .catch(err => {
                 console.log(err);
-                res.sendStatus(400);
+                res.status(400).json(err);
             });
     },
 
     createRecipe({ body }, res) {
         Recipes.create(body)
-            .then(dbRecipeData => res.json(dbRecipeData))
-            .catch(err => res.json(err));
+            .then(dbRecipesData => res.json(dbRecipesData))
+            .catch(err => res.status(400).json(err));
     },
 
     updateRecipe({ params, body }, res) {
-        Recipes.findOneAndUpdate({ _id: params.id }, body, { new: true, runValidators: true })
+        Recipes.findOneAndUpdate({ _id: params.id }, body, { new: true })
             .then(dbRecipeData => {
                 if (!dbRecipeData) {
-                    res.status(404).json({ message: 'Noe recipe found!' });
+                    res.status(404).json({ message: 'No recipe found with this id!' });
                     return;
                 }
                 res.json(dbRecipeData);
             })
-            .catch(err => res.json(err));
+            .catch(err => res.status(400).json(err));
     }
 
 };
