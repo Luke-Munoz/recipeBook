@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
+//import {log} from "nodemon/lib/utils";
 
 
 function Login(props){
@@ -41,7 +42,7 @@ function Login(props){
 
         <Container className="forms-background">
             <h2 className="header-2" >Login</h2>
-            <Form onSubmit = "">
+            <Form onSubmit = {loginFormHandler}>
                 <Row form>
                     <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                         <FormGroup className="flex-row space-between">
