@@ -9,6 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
+    secret: 'foo',
     store: MongoStore.create({ mongoUrl: 'mongodb://localhost/recipebook'})
 }));
 
@@ -17,7 +18,7 @@ app.use(require('./routes'));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebook', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: true,
+    useFindAndModify: false,
     useCreateIndex: true
 });
 
