@@ -86,7 +86,7 @@ export default Recipes
 
 
     
-};
+
 
 Card.propTypes = {
     // Pass in a Component to override default element
