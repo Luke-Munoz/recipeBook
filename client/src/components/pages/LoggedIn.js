@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState } from "react";
+import Axios from "axios";
+import {Image} from 'cloudinary-react';
 //import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactStrap';
 function LoggedIn() {
 
@@ -103,6 +105,19 @@ async function logoutFormHandler(){
 }
 
 
+    const [imageSelected, setImageSelected] = useState("");
+    const uploadImage = () => {
+        const formData = new FormData();
+        formData.append("file", imageSelected);
+        formData.append("upload_preset", "xqjdk6dx");
+        Axios.post(
+            "https://api.cloudinary.com/v1_1/dt8vj9whj/image/upload",
+            formData
+        ).then((response) => {
+            console.log(response);
+        });
+    };
+
     return (
         <div>
             <h1>Post A Recipe</h1>
@@ -195,6 +210,18 @@ async function logoutFormHandler(){
                     <button type = "submit">Submit</button>
                 </div>
             </form>
+            <div>
+                <input
+                    type="file"
+                    onChange={(event) => {
+                        setImageSelected(event.target.files[0]);
+                    }}
+                />
+                <button onClick={uploadImage}> Upload Image</button>
+                <Image
+                    cloudName="dt8vj9whj" publicId="" />
+                {/* in the publicId the url for the image goes there */}
+            </div>
             <form onSubmit={logoutFormHandler}>
                 <div>
                     <label htmlFor="logoutButton">Logout</label>
