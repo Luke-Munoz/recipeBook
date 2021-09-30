@@ -7,8 +7,8 @@ const OnLoadPage = (props) => {
         <div>
             <Jumbotron fluid>
                 <Container fluid>
-                    <h1 className="display-3">Fluid Jumbotron</h1>
-                    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                    <h1 className="display-3">Welcome to Recipe Book!!!!</h1>
+                    <p className="lead">This is a blog dedicated to the sharing of your favorite recipes with other foodies! </p>
                 </Container>
             </Jumbotron>
         </div>

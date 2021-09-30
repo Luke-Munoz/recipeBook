@@ -15,7 +15,7 @@ function Signup(props) {
 
 
 
-                const [formState, setFormState] = useState ({email: '', password: ''});
+
 
         async function signUpFormHandler (e) {
                 e.preventDefault();
@@ -41,7 +41,7 @@ function Signup(props) {
                 })
         const serverResponse = await response.json()
                             if(serverResponse.message) {
-                                    throw new Error(serverResponse);
+                                     new Error(serverResponse);
                             }
                             console.log(serverResponse)
 
@@ -62,25 +62,16 @@ function Signup(props) {
                                         <Row form>
                                                 <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                                                         <FormGroup>
-                                                                <Label for="firstName">First Name: </Label>
+                                                                <Label for="username">Username: </Label>
                                                                 <Input
-                                                                placeholder="First Name"
-                                                                name = "firstName"
-                                                                type = "firstName"
-                                                                id = "firstName"
+                                                                placeholder="username"
+                                                                name = "username"
+                                                                type = "username"
+                                                                id = "username"
                                                                 
                                                                 />
                                                         </FormGroup>
-                                                        <FormGroup>
-                                                                <Label for="lastName">Last Name: </Label>
-                                                                <Input
-                                                                placeholder="Last Name"
-                                                                name = "lastName"
-                                                                type = "lastName"
-                                                                id = "lastName"
-                                                                
-                                                                />
-                                                        </FormGroup>
+
                                                         <FormGroup>
                                                                 <Label for="email">Email: </Label>
                                                                 <Input
