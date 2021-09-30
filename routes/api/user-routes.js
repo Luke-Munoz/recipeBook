@@ -18,12 +18,12 @@ router
     .put(updateUser)
     .delete(deleteUser);
 
-router
-    .route('/login')
-    .post(login);
+// router
+//     .route('/login')
+//     .post(login);
 
-router
-    .route('/logout')
-    .post(logout);
+// router
+//     .route('/logout')
+//     .post(logout);
 
 module.exports = router;
