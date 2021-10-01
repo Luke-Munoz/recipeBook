@@ -52,7 +52,7 @@ function Login(props){
                             name="email"
                             type = "email"
                             id = "email"
-                            onChange = ""
+
                             />
 
                         </FormGroup>
@@ -62,8 +62,8 @@ function Login(props){
                             placeholder="**********"
                             name = "password"
                             type = "password"
-                            id = "pwd"
-                            onChange = ""
+                            id = "password"
+
                             />
                         </FormGroup>
                         {/*{error ? (*/}
