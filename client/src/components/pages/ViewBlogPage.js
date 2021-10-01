@@ -1,16 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import {
-    Card, Button, CardImg, CardTitle, CardText, CardDeck,
+    Card, CardImg, CardTitle, CardText, CardDeck,
     CardSubtitle, CardBody,Container, Row, Col, Form, FormGroup, Label, Input
 } from 'reactstrap';
+import axios from 'axios';
 
-//import recipes from './//'
-//import comments from './///'
 
 import PropTypes from 'prop-types';
-import {get} from "mongoose/lib/driver";
 
-// import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactstrap';
 function Recipes(props){
 
 
@@ -29,52 +26,47 @@ try{
     const commentBody = document.querySelector('input[name = "commentBody"]').value;
     const writtenBy = document.querySelector('input[name = "fillertext"]').value;
 
-    const response = await fetch('/api/comment', {
+    const response = await axios('/api/comment', {
         method:'POST',
-        body: JSON.stringify({
+        data: ({
             commentBody,
             writtenBy
-    }),
-        headers: {
-            'Content-Type': 'application.json'
-        }
     })
-    const serverResponse = await response.json()
-    if(serverResponse.message){
-        new Error(serverResponse)
-    }
-    console.log(serverResponse);
+
+    })
+
+    console.log(response.data);
 }catch(err){
     console.log(err);
 }
 
 }
 
-// async function replyFormHandler(e) {
-//     e.preventDefault();
-//     try {
-//         const replyBody = document.querySelector('input[name = "fillertext"]').value;
-//         const writtenBy = document.querySelector('input[name = "fillertext"]').value;
-//
-//         const response = await fetch('/api/:recipeId/:commentId', {
-//             method: 'PUT',
-//             body: JSON.stringify({
-//                 replyBody,
-//                 writtenBy
-//             }),
-//             headers: {
-//                 'Content-Type': 'application.json'
-//             }
-//         })
-//         const serverResponse = await response.json()
-//         if (serverResponse.message) {
-//             new Error(serverResponse);
-//         }
-//         console.log(serverResponse)
-//     }catch(err){
-//         console.log(err)
-//     }
-// }
+    async function recipeFormHandler(e){
+
+        e.preventDefault();
+        try {
+            const recipeTitle = document.querySelector('input[name = "recipeTitle"]').value;
+            const recipeText = document.querySelector('input[name = "recipeText"]').value;
+            const createdBy = document.querySelector('input[name = "createdBy"]').value;
+
+
+
+            const response = await axios ({
+                url: '/api/recipe/',
+                method: 'POST',
+                data: {
+                    recipeTitle,
+                    recipeText,
+                    createdBy
+                }
+
+            })
+          console.log(response.data);
+        } catch (err){
+            console.log(err)
+        }
+    }
 
 
     return (
@@ -88,7 +80,7 @@ try{
        <div>
            {recipes.length > 0 && recipes.map( (recipe) => (
                <p key ={recipe.title}>
-                   {recipe.recipeTitle}
+                   {recipe.recipeTitle}:
 
                    {recipe.recipeText}
 
@@ -113,6 +105,42 @@ try{
                    </Form>
                </p>
            ))}
+           <h2>Post a Recipe</h2>
+           <form onSubmit = {recipeFormHandler}>
+               <div>
+                   <label htmlFor="recipeTitle">Recipe Title:</label>
+                   <input
+                       placeholder = "Recipe Title"
+                       name = "recipeTitle"
+                       type = "recipeTitle"
+                       id = "recipeTitle"
+
+                   />
+               </div>
+               <div>
+                   <label htmlFor="recipeText">Recipe Ingredients:</label>
+                   <input
+                       placeholder = "Recipe Ingredients"
+                       name = "recipeText"
+                       type = "recipeText"
+                       id = "recipeText"
+
+                   />
+               </div>
+               <div>
+                   <label htmlFor="createdBy">Created By:</label>
+                   <input
+                       placeholder = "Created By"
+                       name = "createdBy"
+                       type = "createdBy"
+                       id = "createdBy"
+
+                   />
+               </div>
+               <div>
+                   <button type = "submit">Submit</button>
+               </div>
+           </form>
        </div>
 
    </Container>

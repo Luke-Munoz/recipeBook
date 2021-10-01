@@ -16,8 +16,8 @@ function Login(props){
         const email = document.querySelector('input[name= "email"]').value;
         const password = document.querySelector('input[name= "password"]').value;
 
-        const response = await fetch('/api/user/login',{
-            method: 'post',
+        const response = await fetch('https://api/user',{
+            method: 'POST',
             body: JSON.stringify({
                 email,
                 password
@@ -66,12 +66,7 @@ function Login(props){
 
                             />
                         </FormGroup>
-                        {/*{error ? (*/}
 
-                        {/*    <div>*/}
-                        {/*        <p>Either the email or password are incoorrect.</p>*/}
-                        {/*    </div>*/}
-                        {/*) : null}*/}
                         
                         <FormGroup className="buttonDiv">
                             <Button className="submitBtn" type="submit">Submit</Button>{' '}
