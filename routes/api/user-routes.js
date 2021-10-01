@@ -22,11 +22,11 @@ router
 
 // post routes for the login and logout
  router
-     .route('/')
+     .route('/login')
      .post(loginUser);
 
  router
-     .route('/')
+     .route('/logout')
      .post(logoutUser);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
 //import {log} from "nodemon/lib/utils";
-
+import axios from 'axios';
 
 function Login(props){
 
@@ -16,27 +16,22 @@ function Login(props){
         const email = document.querySelector('input[name= "email"]').value;
         const password = document.querySelector('input[name= "password"]').value;
 
-        const response = await fetch('https://api/user',{
+        const response = await axios('/api/user/login',{
             method: 'POST',
-            body: JSON.stringify({
+            data: ({
                 email,
                 password
             }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+
         })
-            const serverResponse = await response.json()
-            if(serverResponse.message){
-                new Error(serverResponse);
-            }
+            console.log(response.data)
+
         } catch(err) {
             console.log(err);
+
+
         }
     }
-
-
-
 
     return (
 

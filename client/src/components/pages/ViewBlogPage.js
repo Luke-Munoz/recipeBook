@@ -80,9 +80,12 @@ try{
        <div>
            {recipes.length > 0 && recipes.map( (recipe) => (
                <p key ={recipe.title}>
-                   {recipe.recipeTitle}:
+
+                   <strong>{recipe.recipeTitle}</strong>
+                    <p>
 
                    {recipe.recipeText}
+                    </p>
 
                    {recipe.comments.map( (comment) =>(
                        <p key = {comment.commentBody }>{comment.commentBody}</p>
