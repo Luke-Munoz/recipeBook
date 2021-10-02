@@ -15,7 +15,7 @@ function Signup(props) {
 
 
 
-                const [formState, setFormState] = useState ({email: '', password: ''});
+
 
         async function signUpFormHandler (e) {
                 e.preventDefault();
@@ -41,7 +41,7 @@ function Signup(props) {
                 })
         const serverResponse = await response.json()
                             if(serverResponse.message) {
-                                    throw new Error(serverResponse);
+                                     new Error(serverResponse);
                             }
                             console.log(serverResponse)
 
@@ -58,29 +58,20 @@ function Signup(props) {
                                         <h2 className="header-2">Signup</h2>
                                 </Col>
                         </Row>
-                                <Form>
+                                <Form onSubmit={signUpFormHandler}>
                                         <Row form>
                                                 <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                                                         <FormGroup>
-                                                                <Label for="firstName">First Name: </Label>
+                                                                <Label for="username">Username: </Label>
                                                                 <Input
-                                                                placeholder="First Name"
-                                                                name = "firstName"
-                                                                type = "firstName"
-                                                                id = "firstName"
-                                                                //onchange
+                                                                placeholder="username"
+                                                                name = "username"
+                                                                type = "username"
+                                                                id = "username"
+                                                                
                                                                 />
                                                         </FormGroup>
-                                                        <FormGroup>
-                                                                <Label for="lastName">Last Name: </Label>
-                                                                <Input
-                                                                placeholder="Last Name"
-                                                                name = "lastName"
-                                                                type = "lastName"
-                                                                id = "lastName"
-                                                                //onChange
-                                                                />
-                                                        </FormGroup>
+
                                                         <FormGroup>
                                                                 <Label for="email">Email: </Label>
                                                                 <Input
@@ -88,17 +79,17 @@ function Signup(props) {
                                                                 name = "email"
                                                                 type = "email"
                                                                 id = "email"
-                                                                //onChange
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup>
-                                                                <Label for="pwd">Password: </Label>
+                                                                <Label for="password">Password: </Label>
                                                                 <Input
                                                                 placeholder= "*******"
                                                                 name = "password"
                                                                 type = "password"
-                                                                id = "pwd"
-                                                                //onChange
+                                                                id = "password"
+                                                                
                                                                 />
                                                         </FormGroup>
                                                         <FormGroup className="buttonDiv">
@@ -112,6 +103,7 @@ function Signup(props) {
 
         )
 }
+
 
 
 

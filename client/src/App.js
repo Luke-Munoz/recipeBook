@@ -5,45 +5,42 @@ import Recipes from './components/pages/ViewBlogPage'
 import Navigation from './components/nav';
 import OnLoadPage from './components/pages/OnLoadPage';
 import Login from './components/pages/Login';
-import Home from './components/pages/Home';
+//import Home from './components/pages/Home';
 import Signup from './components/pages/Signup'
 
 function App() {
-const [currentPage, handlePageChange] = useState('Home')
+    const [currentPage, handlePageChange] = useState('Home')
 
 
-  const renderPage = () => {
-    switch (currentPage) {
-      case 'Signup':
-        return <Signup />;
+    const renderPage = () => {
+        switch (currentPage) {
+            case 'Signup':
+                return <Signup/>;
 
-      case 'Navigation':
-        return <Navigation/>;
+            case 'Navigation':
+                return <Navigation/>;
 
-        case 'Recipes':
-          return  <Recipes />;
+            case 'Recipes':
+                return <Recipes/>;
 
-        case 'Login':
-          return  <Login />;
+            case 'Login':
+                return <Login/>;
 
-          default:
+            default:
 
-            return<OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/> ;
+                return <OnLoadPage currentPage={currentPage} handlePageChange={handlePageChange}/>;
+        }
     }
-  }
 
+    return (
+        <div>
+            <header className="navigation">
+                <Navigation currentPage={currentPage} handlePageChange={handlePageChange}/>
+            </header>
+            <div> {renderPage(currentPage)}</div>
 
-  return (
-    <div>
-
-      <header className = "navigation">
-        <Navigation currentPage={currentPage} handlePageChange = {handlePageChange} />
-      </header>
-        <div> {renderPage(currentPage)}</div>
-
-    </div>
-
-  );
+        </div>
+    );
 }
 
 export default App;
