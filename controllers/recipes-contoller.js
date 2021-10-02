@@ -37,9 +37,11 @@ const recipesController = {
     },
 
     createRecipe({ body }, res) {
+        console.log(body)
         Recipes.create(body)
             .then(dbRecipesData => res.json(dbRecipesData))
             .catch(err => res.status(400).json(err));
+
     },
 
     updateRecipe({ params, body }, res) {

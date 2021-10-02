@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reactstrap';
-
+//import {log} from "nodemon/lib/utils";
+import axios from 'axios';
 
 function Login(props){
 
@@ -15,33 +16,28 @@ function Login(props){
         const email = document.querySelector('input[name= "email"]').value;
         const password = document.querySelector('input[name= "password"]').value;
 
-        const response = await fetch('/api/user/login',{
-            method: 'post',
-            body: JSON.stringify({
+        const response = await axios('/api/user/login',{
+            method: 'POST',
+            data: ({
                 email,
                 password
             }),
-            headers: {
-                'Content-Type': 'application/json'
-            }
+
         })
-            const serverResponse = await response.json()
-            if(serverResponse.message){
-                new Error(serverResponse);
-            }
+            console.log(response.data)
+
         } catch(err) {
             console.log(err);
+
+
         }
     }
-
-
-
 
     return (
 
         <Container className="forms-background">
             <h2 className="header-2" >Login</h2>
-            <Form onSubmit = "">
+            <Form onSubmit = {loginFormHandler}>
                 <Row form>
                     <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                         <FormGroup className="flex-row space-between">
@@ -51,7 +47,7 @@ function Login(props){
                             name="email"
                             type = "email"
                             id = "email"
-                            onChange = ""
+
                             />
 
                         </FormGroup>
@@ -61,16 +57,11 @@ function Login(props){
                             placeholder="**********"
                             name = "password"
                             type = "password"
-                            id = "pwd"
-                            onChange = ""
+                            id = "password"
+
                             />
                         </FormGroup>
-                        {/*{error ? (*/}
 
-                        {/*    <div>*/}
-                        {/*        <p>Either the email or password are incoorrect.</p>*/}
-                        {/*    </div>*/}
-                        {/*) : null}*/}
                         
                         <FormGroup className="buttonDiv">
                             <Button className="submitBtn" type="submit">Submit</Button>{' '}
