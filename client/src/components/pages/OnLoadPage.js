@@ -1,17 +1,21 @@
 
 import React from 'react';
-import { Jumbotron, Container } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 
 const OnLoadPage = (props) => {
     return (
-        <div>
-            <Jumbotron fluid>
-                <Container fluid>
-                    <h1 className="display-3">Fluid Jumbotron</h1>
-                    <p className="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                </Container>
-            </Jumbotron>
-        </div>
+        <Container className="landingContainer">
+            <Row>
+                <Col>
+                    <h1 className="display-3">RecipeBook</h1>
+                </Col>
+            </Row>
+            <Row>
+                <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}} lg={{size:'8', offset:'2'}}>
+                    <p className="lead">RecipeBook is a place for you to find, share, and try out all kinds of recipes from all kinds of people! Sign in or create an account to start cooking!</p>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 
