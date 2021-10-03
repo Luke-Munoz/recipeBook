@@ -7,7 +7,7 @@ seeder.connect(info, function() {
     seeder.loadModels([
         "./models/User.js",
     ]);
-    // Clear prexisitng data
+    // Clear pre existing data
     seeder.clearModels([ "User" ], function() {
         // populate database
         seeder.populateModels(data, function() {
