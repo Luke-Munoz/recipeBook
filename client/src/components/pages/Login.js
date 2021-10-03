@@ -3,9 +3,12 @@ import { Button, Form, FormGroup, Label, Input, Container, Row, Col } from 'reac
 //import {log} from "nodemon/lib/utils";
 import axios from 'axios';
 
+
 function Login(props){
 
-
+const clickEventHandler = (e) => {
+    props.handlePageChange('LoggedIn')
+}
 
 
 
@@ -64,7 +67,7 @@ function Login(props){
 
                         
                         <FormGroup className="buttonDiv">
-                            <Button className="submitBtn" type="submit">Submit</Button>{' '}
+                            <Button className="submitBtn" type="submit" onClick={clickEventHandler}>Submit</Button>{' '}
                         </FormGroup>
                         
                     </Col>
