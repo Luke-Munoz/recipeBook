@@ -6,9 +6,9 @@ import axios from 'axios';
 
 function Login(props){
 
-const clickEventHandler = (e) => {
-    props.handlePageChange('LoggedIn')
-}
+// const clickEventHandler = (e) => {
+//     props.handlePageChange('LoggedIn')
+// }
 
 
 
@@ -27,6 +27,7 @@ const clickEventHandler = (e) => {
             }),
 
         })
+        props.handlePageChange('LoggedIn')
             console.log(response.data)
 
         } catch(err) {
@@ -67,7 +68,7 @@ const clickEventHandler = (e) => {
 
                         
                         <FormGroup className="buttonDiv">
-                            <Button className="submitBtn" type="submit" onClick={clickEventHandler}>Submit</Button>{' '}
+                            <Button className="submitBtn" type="submit" >Submit</Button>{' '}
                         </FormGroup>
                         
                     </Col>
