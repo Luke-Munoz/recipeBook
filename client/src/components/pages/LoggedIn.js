@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import {Image} from 'cloudinary-react';
+<<<<<<< HEAD
 import { Button, Container, Row, Col, Form, FormGroup,Label, Input } from 'reactstrap';
+=======
+import { Button, Container, Row, Col, Form, Input, Label, FormGroup, } from 'reactstrap';
+>>>>>>> 3e3e6444f875a0ba5776c80c389cc9835048baa1
 function LoggedIn() {
 
 

@@ -37,6 +37,17 @@ body {
   color: #61dafb;
 }
 
+body {
+   /* background-color: #ffb87a; */
+   background-image:  linear-gradient(to bottom, rgba(255,184,121,0.5), rgba(255, 255, 255, 0.3)),url('components/images/pexels-engin-akyurt-1527603.jpg');
+   background-size: 350%;
+   background-repeat: none;
+   /* background-position: absolute; */
+   background-position-y: 20%;
+   background-position-x: 50%;
+   background-attachment: fixed;
+}
+
 html {
   /* background-color: #ffb87a; */
   background-image:  linear-gradient(to bottom, rgba(255,184,121,0.5), rgba(255, 255, 255, 0.3)),url('components/images/pexels-engin-akyurt-1527603.jpg');
