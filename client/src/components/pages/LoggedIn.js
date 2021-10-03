@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import {Image} from 'cloudinary-react';
-//import { Nav, NavItem, NavLink, Button, ButtonGroup, Container, Row, Col, Media } from 'reactStrap';
+import { Button, Container, Row, Col, Form, FormGroup, } from 'reactStrap';
 function LoggedIn() {
 
 
@@ -119,121 +119,125 @@ async function logoutFormHandler(){
     };
 
     return (
-        <div>
-            <h1>Post A Recipe</h1>
-            <form onSubmit = {recipeFormHandler}>
-                <div>
-                    <label htmlFor="recipeTitle">Recipe Title:</label>
-                    <input
-                    placeholder = "Recipe Title"
-                    name = "recipeTitle"
-                    type = "recipeTitle"
-                    id = "recipeTitle"
+        <Container>
+            <h2 className="header-2">Post A Recipe</h2>
+            <Form onSubmit = {recipeFormHandler}>
+                <Row form>
+                    <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="recipeTitle">Recipe Title:</Label>
+                            <Input
+                            placeholder = "Recipe Title"
+                            name = "recipeTitle"
+                            type = "recipeTitle"
+                            id = "recipeTitle"
 
-                    />
-                </div>
-                <div>
-                    <label htmlFor="recipeText">Recipe Ingredients:</label>
-                    <input 
-                    placeholder = "Recipe Ingredients"
-                    name = "recipeText"
-                    type = "recipeText"
-                    id = "recipeText"
+                            />
+                        </FormGroup>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="recipeText">Recipe Ingredients:</Label>
+                            <Input 
+                            placeholder = "Recipe Ingredients"
+                            name = "recipeText"
+                            type = "recipeText"
+                            id = "recipeText"
 
-                    />
-                </div>
-                <div>
-                    <label htmlFor="createdBy">Created By:</label>
-                    <input
-                    placeholder = "Created By"
-                    name = "createdBy"
-                    type = "createdBy"
-                    id = "createdBy"
-                    
-                    />
-                </div>
-                <div>
-                    <button type = "submit">Submit</button>
-                </div>
-            </form>
+                            />
+                        </FormGroup>
+                        <FormGroup className="flex-row space-between">
+                            <Label htmlFor="createdBy">Created By:</Label>
+                            <Input
+                            placeholder = "Created By"
+                            name = "createdBy"
+                            type = "createdBy"
+                            id = "createdBy"
+                            
+                            />
+                        </FormGroup>
+                        <FormGroup className="buttonDiv">
+                            <Button className="submitBtn"type = "submit">Submit</Button>
+                        </FormGroup>
+                    </Col>
+                </Row>
+            </Form>
 
             <h1>Add A Comment</h1>
-            <form onSubmit = {commentFormHandler}>
-                <div>
-                    <label htmlFor="commentBody">Comment:</label>
-                    <input
+            <Form onSubmit = {commentFormHandler}>
+                <FormGroup>
+                    <Label htmlFor="commentBody">Comment:</Label>
+                    <Input
                     placeholder = "Comment"
                     name = "commentBody"
                     type = "commentBody"
                     id = "commentBody"
 
                     />
-                </div>
-                <div>
-                    <label htmlFor="writtenBy">Comment Written By:</label>
-                    <input 
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="writtenBy">Comment Written By:</Label>
+                    <Input 
                     placeholder = "Comment Wriitten By"
                     name = "writtenBy"
                     type = "writtenBy"
                     id = "writtenBy"
 
                     />
-                </div>
-                <div>
-                    <button type = "submit">Submit</button>
-                </div>
-            </form>
+                </FormGroup>
+                <FormGroup>
+                    <Button type = "submit">Submit</Button>
+                </FormGroup>
+            </Form>
 
             <h1>Add A Reply</h1>
-            <form onSubmit = {replyFormHandler}>
-                <div>
-                    <label htmlFor="replyBody">Add Reply:</label>
-                    <input
+            <Form onSubmit = {replyFormHandler}>
+                <FormGroup>
+                    <Label htmlFor="replyBody">Add Reply:</Label>
+                    <Input
                     placeholder = "Add Reply"
                     name = "replyBody"
                     type = "replyBody"
                     id = "replyBody"
 
                     />
-                </div>
-                <div>
-                    <label htmlFor="writtenBy">Reply Written By:</label>
-                    <input
+                </FormGroup>
+                <FormGroup>
+                    <Label htmlFor="writtenBy">Reply Written By:</Label>
+                    <Input
                     placeholder = "Reply Written By"
                     name = "writtenBy"
                     type = "writtenBy"
                     id = "writtenBy"
 
                     />
-                </div>
-                <div>
-                    <button type = "submit">Submit</button>
-                </div>
-            </form>
+                </FormGroup>
+                <FormGroup>
+                    <Button type = "submit">Submit</Button>
+                </FormGroup>
+            </Form>
             <div>
-                <input
+                <Input
                     type="file"
                     onChange={(event) => {
                         setImageSelected(event.target.files[0]);
                     }}
                 />
-                <button onClick={uploadImage}> Upload Image</button>
+                <Button onClick={uploadImage}> Upload Image</Button>
                 <Image
                     cloudName="dt8vj9whj" publicId="" />
                 {/* in the publicId the url for the image goes there */}
             </div>
-            <form onSubmit={logoutFormHandler}>
-                <div>
-                    <label htmlFor="logoutButton">Logout</label>
-                    <input
+            <Form onSubmit={logoutFormHandler}>
+                <FormGroup>
+                    <Label htmlFor="logoutButton">Logout</Label>
+                    <Input
                     placeholder = "logout"
                     name = "logout"
                     type = "logout"
                     id = "logout"
                     />
-                </div>
-            </form>
-        </div>
+                </FormGroup>
+            </Form>
+        </Container>
 
     )
 }
