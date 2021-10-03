@@ -17,12 +17,13 @@
   "dependencies": {
     "cloudinary": "^1.27.0",
     "cloudinary-react": "^1.7.0",
-    "concurrently": "^6.2.1",
+    "concurrently": "^6.3.0",
     "connect-mongo": "^4.6.0",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
-    "mongoose": "^5.9.7",
+    "mongoose": "^5.13.9",
     "mongoose-seed": "^0.6.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "reactstrap": "^8.10.0"
   }
 }

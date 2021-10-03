@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Axios from "axios";
 import {Image} from 'cloudinary-react';
-import { Button, Container, Row, Col, Form, FormGroup, } from 'reactStrap';
+import { Button, Container, Row, Col, Form, FormGroup,Label, Input } from 'reactstrap';
 function LoggedIn() {
 
 

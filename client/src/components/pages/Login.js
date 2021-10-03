@@ -6,9 +6,9 @@ import axios from 'axios';
 
 function Login(props){
 
-const clickEventHandler = (e) => {
-    props.handlePageChange('LoggedIn')
-}
+// const clickEventHandler = (e) => {
+//     props.handlePageChange('LoggedIn')
+// }
 
 
 
@@ -25,8 +25,9 @@ const clickEventHandler = (e) => {
                 email,
                 password
             }),
-
+            
         })
+        props.handlePageChange('LoggedIn')
             console.log(response.data)
 
         } catch(err) {
@@ -40,7 +41,7 @@ const clickEventHandler = (e) => {
 
         <Container className="forms-background">
             <h2 className="header-2" >Login</h2>
-            <Form onSubmit = {loginFormHandler}>
+            <Form onSubmit = {loginFormHandler}  >
                 <Row form>
                     <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
                         <FormGroup className="flex-row space-between">
@@ -67,7 +68,7 @@ const clickEventHandler = (e) => {
 
                         
                         <FormGroup className="buttonDiv">
-                            <Button className="submitBtn" type="submit" onClick={clickEventHandler}>Submit</Button>{' '}
+                            <Button className="submitBtn" type="submit" >Submit</Button>{' '}
                         </FormGroup>
                         
                     </Col>
