@@ -24,6 +24,7 @@
     "express-session": "^1.17.2",
     "mongoose": "^5.9.7",
     "mongoose-seed": "^0.6.0",
-    "nodemon": "^2.0.13"
+    "nodemon": "^2.0.13",
+    "reactstrap": "^8.10.0"
   }
 }
