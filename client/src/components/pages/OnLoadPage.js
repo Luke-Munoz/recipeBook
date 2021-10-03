@@ -1,6 +1,8 @@
 
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import Login from './Login';
+import Signup from './Signup';
 
 const OnLoadPage = (props) => {
     return (
@@ -15,7 +17,10 @@ const OnLoadPage = (props) => {
                     <p className="lead">RecipeBook is a place for you to find, share, and try out all kinds of recipes from all kinds of people! Sign in or create an account to start cooking!</p>
                 </Col>
             </Row>
+            <Login currentPage = {props.currentPage}  handlePageChange = {props.handlePageChange}/>
+            <Signup />
         </Container>
+        
     );
 };
 
