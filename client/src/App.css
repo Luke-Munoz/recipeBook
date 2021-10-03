@@ -31,7 +31,7 @@
 html {
   /* background-color: #ffb87a; */
   background-image:  linear-gradient(to bottom, rgba(255,184,121,0.5), rgba(255, 255, 255, 0.3)),url('components/images/pexels-engin-akyurt-1527603.jpg');
-  background-size: 400%;
+  background-size: 350%;
   background-repeat: none;
   /* background-position: absolute; */
   background-position-y: 20%;
@@ -93,9 +93,13 @@ html {
 
 .header-2 {
   font-size: 40px;
-  text-align: center;
+  text-align: center !important;
   margin: 5px 5px 20px 5px;
   color: #ffb87a;
+}
+
+.header-3 {
+  text-align: center;
 }
 
 .submitBtn {

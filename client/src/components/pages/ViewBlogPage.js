@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {
     Card, CardImg, CardTitle, CardText, CardDeck,
-    CardSubtitle, CardBody,Container, Row, Col, Form, FormGroup, Label, Input
+    CardSubtitle, CardBody,Container, Row, Col, Form, FormGroup, Label, Input, Button
 } from 'reactstrap';
 import axios from 'axios';
 
@@ -71,82 +71,102 @@ try{
 
     return (
 
-   <Container className="forms-background">
-       <Row>
-           <Col>
-               <h2 className="header-2">Recipe!</h2>
-           </Col>
-       </Row>
-       <div>
-           {recipes.length > 0 && recipes.map( (recipe) => (
-               <p key ={recipe.title}>
+        <Container className="forms-background">
+            <Row>
+                <Col>
+                    <h2 className="header-2">Recipe!</h2>
+                </Col>
+            </Row>
+            <div>
+                {recipes.length > 0 && recipes.map( (recipe) => (
+                    <p key ={recipe.title}>
 
-                   <strong>{recipe.recipeTitle}</strong>
-                    <p>
+                        <strong>{recipe.recipeTitle}</strong>
+                            <p>
 
-                   {recipe.recipeText}
+                        {recipe.recipeText}
+                            </p>
+
+                        {recipe.comments.map( (comment) =>(
+                            <p key = {comment.commentBody }>{comment.commentBody}</p>
+                        ))}
+                        <Form onSubmit={commentFormHandler}>
+                            <Row form>
+                                <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                                    <FormGroup>
+                                        <Label for = "commentBody">Comment</Label>
+                                        <Input
+                                            placeholder="Comment"
+                                            name = "commentBody"
+                                            type = "commentBody"
+                                            id = "commentBody"
+                                        />
+                                        <Button  className="submitBtn" type = "submit">Submit</Button>
+                                    </FormGroup>
+                                </Col>
+                            </Row>
+                        </Form>
                     </p>
+                ))}
+                <Row>
+                    <Col>
+                        <h3 className="header-3">Post a Recipe</h3>
+                    </Col>
+                </Row>
+                <Form onSubmit = {recipeFormHandler}>
+                    <Row>
+                        <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                            <FormGroup>
+                                <Label htmlFor="recipeTitle">Recipe Title:</Label>
+                                <Input
+                                    placeholder = "Recipe Title"
+                                    name = "recipeTitle"
+                                    type = "recipeTitle"
+                                    id = "recipeTitle"
 
-                   {recipe.comments.map( (comment) =>(
-                       <p key = {comment.commentBody }>{comment.commentBody}</p>
-                   ))}
-                   <Form onSubmit={commentFormHandler}>
-                       <Row form>
-                           <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
-                               <FormGroup>
-                                   <Label for = "commentBody">Comment</Label>
-                                   <Input
-                                       placeholder="Comment"
-                                       name = "commentBody"
-                                       type = "commentBody"
-                                       id = "commentBody"
-                                   />
-                                   <button  className="submitBtn" type = "submit">Submit</button>
-                               </FormGroup>
-                           </Col>
-                       </Row>
-                   </Form>
-               </p>
-           ))}
-           <h2>Post a Recipe</h2>
-           <form onSubmit = {recipeFormHandler}>
-               <div>
-                   <label htmlFor="recipeTitle">Recipe Title:</label>
-                   <input
-                       placeholder = "Recipe Title"
-                       name = "recipeTitle"
-                       type = "recipeTitle"
-                       id = "recipeTitle"
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                            <FormGroup>
+                                <Label htmlFor="recipeText">Recipe Ingredients:</Label>
+                                <Input
+                                    placeholder = "Recipe Ingredients"
+                                    name = "recipeText"
+                                    type = "recipeText"
+                                    id = "recipeText"
 
-                   />
-               </div>
-               <div>
-                   <label htmlFor="recipeText">Recipe Ingredients:</label>
-                   <input
-                       placeholder = "Recipe Ingredients"
-                       name = "recipeText"
-                       type = "recipeText"
-                       id = "recipeText"
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col xs={{size: "10", offset:"1"}} sm={{size:"10"}} md={{size:"8", offset:"2"}}>
+                            <FormGroup>
+                                <Label htmlFor="createdBy">Created By:</Label>
+                                <Input
+                                    placeholder = "Created By"
+                                    name = "createdBy"
+                                    type = "createdBy"
+                                    id = "createdBy"
 
-                   />
-               </div>
-               <div>
-                   <label htmlFor="createdBy">Created By:</label>
-                   <input
-                       placeholder = "Created By"
-                       name = "createdBy"
-                       type = "createdBy"
-                       id = "createdBy"
+                                />
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <FormGroup className="buttonDiv">
+                                <Button className="submitBtn" type = "submit">Submit</Button>
+                            </FormGroup>
+                        </Col>
+                    </Row>
+                </Form>
+            </div>
 
-                   />
-               </div>
-               <div>
-                   <button type = "submit">Submit</button>
-               </div>
-           </form>
-       </div>
-
-   </Container>
+        </Container>
 
 
     );
