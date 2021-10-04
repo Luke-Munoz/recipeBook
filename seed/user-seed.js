@@ -1,8 +1,8 @@
 const seeder = require('mongoose-seed');
 
-const info = "mongodb://localhost/recipebook";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/recipebook"
 
-seeder.connect(info, function() {
+seeder.connect(MONGODB_URI, function() {
     // Load the models
     seeder.loadModels([
         "./models/User.js",
