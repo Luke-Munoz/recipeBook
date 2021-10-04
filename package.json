@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build",
+    "build": "cd client && npm run-script build",
     "develop": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
     "seed": "node seed/recipes-seed.js",
     "used": "node seed/user-seed.js",
