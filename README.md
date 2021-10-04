@@ -28,4 +28,9 @@ Luke and I were given the responsibility of getting the backend up and running w
 <img src="./images/2021-10-03.png" />
 
 ## Link to Application
+<<<<<<< HEAD
 <a href="https://whispering-island-80418.herokuapp.com/">Link to Applicaiton</a>
+=======
+<a href="https://whispering-island-80418.herokuapp.com/">Link to Applicaiton</a>
+
+>>>>>>> 80b819ab4249186a5d1ad8e621dffac3b308d7a4
