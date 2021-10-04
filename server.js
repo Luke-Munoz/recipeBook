@@ -19,18 +19,14 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: MONGODB_URI })
 }));
 
-app.use(require('./routes'));
-
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static(path.join(__dirname, 'client/build')));
     // app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'client/build/index.html')); })
-
-} else {
-    
-    // dev mode
-    app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'client/public/index.html')); })
-
 }
+
+app.use(require('./routes'));
+
+
 
 mongoose.set('debug', true);
 
