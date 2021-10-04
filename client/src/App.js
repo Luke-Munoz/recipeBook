@@ -14,8 +14,8 @@ function App() {
 
     const renderPage = () => {
         switch (currentPage) {
-            case 'Signup':
-                return <Signup/>;
+            case 'LoggedIn':
+                return <LoggedIn/>;
 
             case 'Navigation':
                 return <Navigation/>;
