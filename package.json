@@ -7,26 +7,21 @@
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "npm start --prefix client",
-
     "test": "echo \"Error: no test specified\" && exit 1",
-
     "build": "cd client && npm run build",
-    
     "develop": "concurrently \"nodemon server.js\" \"cd client && npm start\"",
-
     "client-install": "npm install --prefix client",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client        && npm run build --prefix client",
-
     "recipe": "node seed/recipes-seed.js",
     "user": "node seed/user-seed.js",
     "comment": "node seed/comments-seed.js"
   },
   "keywords": [],
-
   "author": "",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.22.0",
+    "bootstrap": "^5.1.1",
     "cloudinary": "^1.27.0",
     "cloudinary-react": "^1.7.0",
     "concurrently": "^6.2.1",
@@ -36,11 +31,11 @@
     "mongoose": "^5.9.7",
     "mongoose-seed": "^0.6.0",
     "nodemon": "^2.0.13",
+    "path": "^0.12.7",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^4.0.3",
     "reactstrap": "^8.10.0",
-    "web-vitals": "^1.1.2",
-    "bootstrap": "^5.1.1"
+    "web-vitals": "^1.1.2"
   }
 }
