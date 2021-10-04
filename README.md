@@ -11,9 +11,9 @@ Blog site that allows publishing of recipes and allows users to edit these blog 
 
 * [Usage](#usage)
 * [Technology](#technology)
-* [Contributors](#contribuors)
+* [Contributors](#contributors)
 * [Screenshot](#screenshot)
-* [Link](#link to application)
+* [Link](#link)
 
 ## Usage
 As mentioned in the descirpiton the usage of this app is ment to be a place where people can post any recpie of their choice and share it with the world. We alos hope that those who reply to the recipes on our applicaiton do so in a manner that is professional and polite. Ultimately we hope our website is used for good and that people can share their love of food.
@@ -27,10 +27,6 @@ Luke and I were given the responsibility of getting the backend up and running w
 ## Screenshot
 <img src="./images/2021-10-03.png" />
 
-## Link to Application
-<<<<<<< HEAD
-<a href="https://whispering-island-80418.herokuapp.com/">Link to Applicaiton</a>
-=======
+## Link
 <a href="https://whispering-island-80418.herokuapp.com/">Link to Applicaiton</a>
 
->>>>>>> 80b819ab4249186a5d1ad8e621dffac3b308d7a4
