@@ -7,15 +7,15 @@ import OnLoadPage from './components/pages/OnLoadPage';
 import Login from './components/pages/Login';
 //import Home from './components/pages/Home';
 import Signup from './components/pages/Signup'
-import LoggedIn from './components/pages/LoggedIn';
 
-function App(props) {
+function App() {
     const [currentPage, handlePageChange] = useState('Home')
 
 
     const renderPage = () => {
         switch (currentPage) {
-            
+            case 'Signup':
+                return <Signup/>;
 
             case 'Navigation':
                 return <Navigation/>;
@@ -23,10 +23,8 @@ function App(props) {
             case 'Recipes':
                 return <Recipes/>;
 
-
-            case 'LoggedIn':
-                return <LoggedIn />;
-
+            case 'Login':
+                return <Login/>;
 
             default:
 

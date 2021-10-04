@@ -6,6 +6,8 @@ const MongoStore = require('connect-mongo');
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/recipebook"
 
+console.log('Connecting to mongodb: ' + MONGODB_URI);
+
 const app = express();
 
 app.use(express.json());
@@ -15,14 +17,14 @@ app.use(session({
     store: MongoStore.create({ mongoUrl: MONGODB_URI})
 }));
 
+mongoose.set('debug', true);
+
 mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true
 });
-
-mongoose.set('debug', true);
 
 app.use(require('./routes'));
 
