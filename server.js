@@ -2,6 +2,7 @@ const session = require('express-session');
 const mongoose = require('mongoose');
 const express = require('express');
 const MongoStore = require('connect-mongo');
+const path = require('path');
 
 const PORT = process.env.PORT || 3001;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/recipebook"
@@ -27,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 } else {
     
     // dev mode
-    // app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'client/public/index.html')); })
+    app.get('*', (req, res) => { res.sendFile(path.join(__dirname, 'client/public/index.html')); })
 
 }
 
