@@ -5,17 +5,18 @@ const MongoStore = require('connect-mongo');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/recipebook";
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(session({
     secret: 'foo',
-    store: MongoStore.create({ mongoUrl: 'mongodb://localhost/recipebook'})
+    store: MongoStore.create({ mongoUrl: MONGODB_URI})
 }));
 
 app.use(require('./routes'));
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/recipebook', {
+mongoose.connect(MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
