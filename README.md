@@ -6,7 +6,14 @@ A place where users can post recipes and share them with the world!
 This applicaiton is basically a food blog where people can post and share food recipes with their friends. Luke, Trevon, and Jacek came up with this idea for our application after discussing how they do not like forgetting recipes to dishes they really enjoyed. I joined the group after they had finalized this idea for the applicaiton. Users can use this application to interact with each other by leaving comments on recipes they tried for themsleves. In conclusion, the problem that this application solves is allowing users to have an online cookbook where they can store recpies they really liked without forgetting them later on.
 
 ## Application Organization:
-Luke and I were given the task of getting the database and the routes working for the application. We split the responsibility of creating the tables for the database between us initally with me creating the User model and Luke creating the Recipes/Comments models. After we were both done with the models we both took on different assignments in creating the other parts of our database. Luke took on the responsiblity of using axios base code to upload pictures of the recipies to the 
+Luke and I were given the task of getting the database and the routes working for the application. We split the responsibility of creating the tables for the database between us initally with me creating the User model and Luke creating the Recipes/Comments models. After we were both done with the models we both took on different assignments in creating the other parts of our database. Luke took on the responsiblity of using axios base code to upload pictures of the recipies to one of the pages we created for the blog. I took on the responsiblity to get our database seeded along with creating a mongoose based session so the application could tell when a user logged in. Throughtout the whole process we consistently communicated with each other if we ever needed to ask each other questions about errors that we needed to solve.
+
+Jacek and Trevon took on the tasks associated with organinzing the front end part of our food blog. Trevon was the one who was in charge of using CSS elements along with the react app stylesheet to design our food blog. Trevon was also in charge of making our food blog look good on multiple devices such as ipads and tablets. Jacek had the responsibility of adding functionality to our food blog. The functionality Jacek added to our food blog was giving the user the ability to post recipes, leave comments on other recipies, and login onto our food blog.
+
+The main element that helped us the most in getting our food blog organized by the deadline was all of us communicating with each other if we ever need help in getting errors with the food blog fixed.
+
+## Running The Application:
+
 
 ## Table of Contents
 
