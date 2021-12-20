@@ -2,10 +2,11 @@
 A place where users can post recipes and share them with the world!
 
 
-## Description
+## Application Description:
+This applicaiton is basically a food blog where people can post and share food recipes with their friends. Luke, Trevon, and Jacek came up with this idea for our application after discussing how they do not like forgetting recipes to dishes they really enjoyed. I joined the group after they had finalized this idea for the applicaiton. Users can use this application to interact with each other by leaving comments on recipes they tried for themsleves. In conclusion, the problem that this application solves is allowing users to have an online cookbook where they can store recpies they really liked without forgetting them later on.
 
-Blog site that allows publishing of recipes and allows users to edit these blog posts by allowing them to comment on a post or add a reply to a recipe they liked
-
+## Application Organization:
+Luke and I were given the task of getting the database and the routes working for the application. We split the responsibility of creating the tables for the database between us initally with me creating the User model and Luke creating the Recipes/Comments models. After we were both done with the models we both took on different assignments in creating the other parts of our database. Luke took on the responsiblity of using axios base code to upload pictures of the recipies to the 
 
 ## Table of Contents
 
